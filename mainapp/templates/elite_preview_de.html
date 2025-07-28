@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exklusive Vorschau</title>
+  {{ content_for_header }}
+  <style>
+    body {
+      background: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0 20px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #444;
+      text-align: center;
+    }
+    .btn-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .btn {
+      background: #000;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.2s ease-in-out;
+    }
+    .btn:hover {
+      background: #333;
+    }
+    .password-box {
+      max-width: 400px;
+      width: 100%;
+    }
+    .password-box form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .password-box input[type="password"] {
+      padding: 12px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .password-box button {
+      padding: 12px;
+      font-size: 1rem;
+      background: #000;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .shopify-section {
+      display: none !important;
+    }
+    img.main-logo {
+      width: 120px;
+      margin-bottom: 24px;
+    }
+    .lang-switch {
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+    .lang-btn {
+      background: #f0f0f0;
+      color: #222;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      padding: 8px 18px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: #d1d1d1;
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-switch">
+    <a href="/elite_preview_en" class="lang-btn{% if request.LANGUAGE_CODE == 'en' %} active{% endif %}">English</a>
+    <a href="/elite_preview_de" class="lang-btn{% if request.LANGUAGE_CODE == 'de' %} active{% endif %}">Deutsch</a>
+  </div>
+  <img src="https://images1.vinted.net/t/02_005e9_26nh9XA969z6GU9Jrt2hw8kU/f800/1734618252.jpeg?s=ec26a03d7c617ff7858698a470d592c3d9bd46e4" alt="Logo" class="main-logo" />
+  <h1>Vintaged Elite Products</h1>
+  <h2>Wir verbinden Softwareentwicklung, Vinted-Commerce, Cybersecurity und Individuelle Lösungen.</h2>
+  <p>
+    Schreib uns direkt auf <strong>WhatsApp</strong> 📲 für Anfragen zu
+    <strong>🌐 Websites, 💻 Software, 🛡️ Cybersecurity</strong>
+    und <strong>💼 Vorsorge mit ERGO fürs Leben</strong>.
+  </p>
+  <div class="btn-row">
+    <a href="{{ settings.banner_1_link | default: 'https://api.whatsapp.com/send/?phone=436642358516&text&type=phone_number&app_absent=0' }}" class="btn">{{ settings.banner_1_text | default: 'Whatsapp' }}</a>
+    <a href="{{ settings.banner_2_link | default: 'https://www.instagram.com/vintagedelitee' }}" class="btn">{{ settings.banner_2_text | default: 'Instagram' }}</a>
+    <a href="{{ settings.banner_3_link | default: 'https://www.vinted.at/member/243921037' }}" class="btn">{{ settings.banner_3_text | default: 'Vinted' }}</a>
+    <a href="{{ settings.banner_4_link | default: 'https://www.github.com/TAesthetics' }}" class="btn">{{ settings.banner_4_text | default: 'GitHub' }}</a>
+    <a href="{{ settings.banner_5_link | default: 'https://www.hes.quest' }}" class="btn">{{ settings.banner_5_text | default: 'Impressum' }}</a>
+    <a href="{{ settings.banner_6_link | default: 'https://www.linkedin.com/in/terence-nwaeke-8987ba258/' }}" class="btn">{{ settings.banner_6_text | default: 'LinkedIn' }}</a>
+    <a href="{{ settings.banner_7_link | default: 'https://discord.gg/gBercTcfzW' }}" class="btn">{{ settings.banner_7_text | default: 'Discord Community' }}</a>
+  </div>
+  <div class="password-box">
+    <form method="post" action="/password">
+      <input type="password" name="password" placeholder="Passwort eingeben" required>
+      <button type="submit">Einloggen</button>
+    </form>
+  </div>
+  {{ content_for_layout }} <!-- MUSS da sein, wird aber oben weggeCSS't -->
+</body>
+</html>
