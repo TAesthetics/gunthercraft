@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gunthercraft Modpack Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface2: #1a1a27;
+    --border: #2a2a3a;
+    --accent: #c084fc;
+    --accent2: #ff6b35;
+    --accent3: #6366f1;
+    --text: #e0e0e8;
+    --text-dim: #8888a0;
+    --java: #e76f00;
+    --modpack: #c084fc;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .bg-grid {
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(192,132,252,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(192,132,252,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px 60px;
+  }
+
+  .nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 30px;
+  }
+
+  .nav-bar a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-bar a:hover { color: var(--accent); }
+  .nav-bar a.active { color: var(--accent); }
+
+  .nav-links { display: flex; gap: 20px; }
+
+  header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+
+  .logo-text {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 14px;
+    color: var(--accent);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    opacity: 0.7;
+  }
+
+  h1 {
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, var(--accent), #9333ea, var(--accent3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    color: var(--text-dim);
+    margin-top: 8px;
+    font-weight: 400;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 30px;
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 4px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .tab {
+    flex: 1;
+    min-width: 120px;
+    padding: 12px 16px;
+    border: none;
+    background: transparent;
+    color: var(--text-dim);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 9px;
+    transition: all 0.25s;
+    white-space: nowrap;
+  }
+
+  .tab:hover { color: var(--text); background: var(--surface2); }
+  .tab.active { background: var(--accent); color: var(--bg); }
+
+  .section { display: none; animation: fadeIn 0.3s ease; }
+  .section.active { display: block; }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s;
+  }
+
+  .card:hover { border-color: rgba(192,132,252,0.3); }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .icon-java { background: rgba(231,111,0,0.15); }
+  .icon-modpack { background: rgba(192,132,252,0.15); }
+  .icon-info { background: rgba(192,132,252,0.15); }
+  .icon-warn { background: rgba(255,107,53,0.15); }
+
+  .card h3 { font-size: 20px; font-weight: 700; }
+
+  .card p, .card li {
+    color: var(--text-dim);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .card ul { list-style: none; padding: 0; }
+  .card li { padding: 6px 0; padding-left: 20px; position: relative; }
+
+  .card li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Share Tech Mono', monospace;
+    margin: 2px;
+  }
+
+  .tag-java { background: rgba(231,111,0,0.2); color: var(--java); }
+  .tag-mod { background: rgba(192,132,252,0.2); color: var(--modpack); }
+
+  .mod-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .mod-item {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    transition: all 0.2s;
+  }
+
+  .mod-item:hover { border-color: var(--modpack); transform: translateY(-2px); }
+
+  .mod-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; color: var(--modpack); }
+  .mod-item p { font-size: 13px; color: var(--text-dim); line-height: 1.4; }
+
+  .checklist { list-style: none; padding: 0; }
+
+  .checklist li {
+    padding: 10px 14px;
+    margin: 6px 0;
+    background: var(--surface2);
+    border-radius: 8px;
+    border-left: 3px solid var(--accent);
+    font-size: 15px;
+    color: var(--text);
+    padding-left: 16px;
+  }
+
+  .checklist li::before { display: none; }
+
+  .step-num {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 6px;
+    text-align: center;
+    line-height: 24px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 10px;
+    font-family: 'Share Tech Mono', monospace;
+  }
+
+  .highlight-box {
+    background: rgba(192,132,252,0.05);
+    border: 1px solid rgba(192,132,252,0.2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+
+  .highlight-box.warn {
+    background: rgba(255,107,53,0.05);
+    border-color: rgba(255,107,53,0.2);
+  }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+
+  th {
+    text-align: left;
+    padding: 10px 12px;
+    background: var(--surface2);
+    color: var(--accent);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-dim); }
+  tr:hover td { color: var(--text); }
+
+  .footer {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 13px;
+    font-family: 'Share Tech Mono', monospace;
+  }
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="container">
+
+<nav class="nav-bar">
+  <a href="index.html">← Gunthercraft</a>
+  <div class="nav-links">
+    <a href="crossplay.html">Crossplay Server</a>
+    <a href="modpack.html" class="active">Modpack Server</a>
+  </div>
+</nav>
+
+<header>
+  <div class="logo-text">Java Modded Server</div>
+  <h1>📦 GUNTHERCRAFT MODPACK</h1>
+  <p class="subtitle">Java · NeoForge · Community-Built Modpack</p>
+</header>
+
+<div class="tabs" id="tabs">
+  <button class="tab active" data-tab="overview">Overview</button>
+  <button class="tab" data-tab="server">Server Setup</button>
+  <button class="tab" data-tab="modpack">Mods</button>
+  <button class="tab" data-tab="todo">To-Do</button>
+</div>
+
+<!-- OVERVIEW -->
+<div class="section active" id="overview">
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-modpack">📋</div>
+      <h3>The Concept</h3>
+    </div>
+    <p>The Gunthercraft Modpack server runs a <strong>full community-built modpack</strong> on NeoForge. It combines warfare, Create automation, horror, cyberpunk, and RP elements into one cohesive experience. Java only — designed for 50+ players who want the full mod experience.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-java">⚔️</div>
+      <h3>Java Modded Server</h3>
+    </div>
+    <p><span class="tag tag-java">JAVA ONLY</span> <span class="tag tag-mod">NEOFORGE</span></p>
+    <ul>
+      <li>Full community modpack with 30+ mods</li>
+      <li>Warfare, Create automation, Horror, Cyberpunk themes</li>
+      <li>Earth Map + Custom Dimensions</li>
+      <li>RP-ready with Simple Voice Chat</li>
+      <li>Distributed via CurseForge / Modrinth</li>
+      <li>FTB Teams & Chunks for protection</li>
+    </ul>
+  </div>
+
+  <div class="highlight-box warn">
+    <strong>⚠️ Java Only:</strong> Bedrock players cannot connect to Forge/NeoForge servers. If you want crossplay, see the <a href="crossplay.html" style="color: var(--accent);">Crossplay Server plan</a>.
+  </div>
+
+  <div class="highlight-box">
+    <strong>💡 Why a Modpack?</strong><br>
+    The Discord community requested specific mods — warfare, Create, horror, cyberpunk RP. A unified modpack ensures everyone has the same mods, no version mismatches, and one-click install via launcher.
+  </div>
+</div>
+
+<!-- SERVER -->
+<div class="section" id="server">
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-java">🔧</div>
+      <h3>Server Specs</h3>
+    </div>
+    <table>
+      <tr><th>Property</th><th>Details</th></tr>
+      <tr><td>Software</td><td>NeoForge (recommended) or Forge</td></tr>
+      <tr><td>MC Version</td><td>1.20.1 (best mod support) or 1.21.x</td></tr>
+      <tr><td>RAM</td><td>Min. 10 GB, recommended 16 GB</td></tr>
+      <tr><td>CPU</td><td>Min. 4 cores, recommended 6+ (high single-thread)</td></tr>
+      <tr><td>Storage</td><td>SSD with min. 50 GB free</td></tr>
+      <tr><td>Player Slots</td><td>50–60</td></tr>
+      <tr><td>Java Version</td><td>Java 17 (1.20.1) or Java 21 (1.21.x)</td></tr>
+    </table>
+
+    <div class="highlight-box warn">
+      <strong>⚠️ Important for Modded:</strong> All players must have the exact same modpack version installed. Best distributed via CurseForge App or Modrinth Launcher with one-click install.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-info">💰</div>
+      <h3>Hosting Options</h3>
+    </div>
+    <table>
+      <tr><th>Provider</th><th>Type</th><th>Price (approx.)</th><th>Notes</th></tr>
+      <tr><td>Hetzner</td><td>Dedicated</td><td>from ~€40/month</td><td>Best for modded, EU</td></tr>
+      <tr><td>Bloom Host</td><td>MC Hoster</td><td>from ~$25/month</td><td>Modded-friendly, easy setup</td></tr>
+      <tr><td>BisectHosting</td><td>MC Hoster</td><td>from ~$20/month</td><td>Specializes in modpacks</td></tr>
+      <tr><td>Contabo</td><td>VPS Large</td><td>from ~€25/month</td><td>Budget, more RAM needed</td></tr>
+      <tr><td>Self-host</td><td>Own hardware</td><td>Electricity</td><td>Needs 16GB+ RAM and good upload</td></tr>
+    </table>
+    <p style="margin-top:10px">Modded servers are RAM-hungry — don't undersize. For 50+ players with 30+ mods, plan for 16 GB minimum.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-modpack">📎</div>
+      <h3>Modpack Distribution</h3>
+    </div>
+    <p>The modpack must be distributed to all players. Best options:</p>
+    <ul>
+      <li><strong>CurseForge App</strong> — Upload modpack, players install with one click</li>
+      <li><strong>Modrinth Launcher</strong> — Open-source alternative, growing fast</li>
+      <li><strong>MultiMC / Prism Launcher</strong> — ZIP export for advanced users</li>
+      <li><strong>Custom Launcher</strong> — Branded experience (e.g. Technic, ATLauncher)</li>
+    </ul>
+    <p style="margin-top:10px"><strong>Server-side configs:</strong> Tweak balancing, performance settings, and disable client-only mods on server to save RAM.</p>
+  </div>
+</div>
+
+<!-- MODPACK -->
+<div class="section" id="modpack">
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-modpack">📦</div>
+      <h3>Gunthercraft Modpack — Community Mix</h3>
+    </div>
+    <p>Based on requests from the Discord chat. Recommended base: <strong>NeoForge 1.20.1</strong> (widest mod compatibility).</p>
+  </div>
+
+  <h3 style="margin: 20px 0 12px; color: var(--accent);">🔫 Warfare & Military</h3>
+  <p style="color: var(--text-dim); margin-bottom: 12px;">Requested by: Cataclysm, CyberEnigma0, Smocka Republika, Jame Key Lie</p>
+  <div class="mod-grid">
+    <div class="mod-item">
+      <h4>Timeless & Classics Zero</h4>
+      <p>Realistic firearms with crafting, attachments, and animations</p>
+    </div>
+    <div class="mod-item">
+      <h4>Superb Warfare</h4>
+      <p>Additional weapons and military equipment</p>
+    </div>
+    <div class="mod-item">
+      <h4>Create Big Cannons (CBC)</h4>
+      <p>Large cannons and artillery in Create style</p>
+    </div>
+    <div class="mod-item">
+      <h4>Immersive Vehicles</h4>
+      <p>Planes, tanks, cars — drivable and customizable</p>
+    </div>
+  </div>
+
+  <h3 style="margin: 24px 0 12px; color: var(--accent);">⚙️ Create & Tech</h3>
+  <p style="color: var(--text-dim); margin-bottom: 12px;">Requested by: earlynyancat</p>
+  <div class="mod-grid">
+    <div class="mod-item">
+      <h4>Create</h4>
+      <p>Core mod — mechanical machines, gears, conveyor belts, trains</p>
+    </div>
+    <div class="mod-item">
+      <h4>Create: Steam 'n' Rails</h4>
+      <p>Expanded train options and rail systems</p>
+    </div>
+    <div class="mod-item">
+      <h4>Create Crafts & Additions</h4>
+      <p>Electricity and more machines for Create</p>
+    </div>
+  </div>
+
+  <h3 style="margin: 24px 0 12px; color: var(--accent);">🌍 World & Maps</h3>
+  <p style="color: var(--text-dim); margin-bottom: 12px;">Requested by: david</p>
+  <div class="mod-grid">
+    <div class="mod-item">
+      <h4>Terra (Earth Map)</h4>
+      <p>1:1000 or custom-scale Earth map as the main world</p>
+    </div>
+    <div class="mod-item">
+      <h4>Xaero's World/Minimap</h4>
+      <p>Minimap and world map for navigation</p>
+    </div>
+  </div>
+
+  <h3 style="margin: 24px 0 12px; color: var(--accent);">👻 Horror & Atmosphere</h3>
+  <p style="color: var(--text-dim); margin-bottom: 12px;">Requested by: Jame Key Lie</p>
+  <div class="mod-grid">
+    <div class="mod-item">
+      <h4>The Midnight</h4>
+      <p>Horror dimension with creepy mobs and biomes</p>
+    </div>
+    <div class="mod-item">
+      <h4>Cave Dweller / From The Fog</h4>
+      <p>Stalking horror in caves and foggy areas</p>
+    </div>
+  </div>
+
+  <h3 style="margin: 24px 0 12px; color: var(--accent);">🏙️ Cyberpunk & RP</h3>
+  <p style="color: var(--text-dim); margin-bottom: 12px;">Requested by: CyberEnigma0</p>
+  <div class="mod-grid">
+    <div class="mod-item">
+      <h4>MrCrayfish's Furniture</h4>
+      <p>Furniture and decoration for buildings and RP scenes</p>
+    </div>
+    <div class="mod-item">
+      <h4>Simple Voice Chat</h4>
+      <p>Proximity voice chat — perfect for RP</p>
+    </div>
+    <div class="mod-item">
+      <h4>Supplementaries</h4>
+      <p>Signs, flags, decorative blocks for world-building</p>
+    </div>
+  </div>
+
+  <h3 style="margin: 24px 0 12px; color: var(--accent);">🧬 Other Community Requests</h3>
+  <div class="mod-grid">
+    <div class="mod-item">
+      <h4>Spore Mod</h4>
+      <p>Requested by Cataclysm — organic creatures</p>
+    </div>
+  </div>
+
+  <h3 style="margin: 24px 0 12px; color: var(--accent);">🛠️ Essentials (Required Mods)</h3>
+  <div class="mod-grid">
+    <div class="mod-item">
+      <h4>Rubidium / Embeddium</h4>
+      <p>Performance mod (Forge equivalent to Sodium)</p>
+    </div>
+    <div class="mod-item">
+      <h4>Oculus</h4>
+      <p>Shader support for Forge</p>
+    </div>
+    <div class="mod-item">
+      <h4>JEI (Just Enough Items)</h4>
+      <p>Recipe lookup — essential for modpacks</p>
+    </div>
+    <div class="mod-item">
+      <h4>JourneyMap</h4>
+      <p>Full map with waypoints</p>
+    </div>
+    <div class="mod-item">
+      <h4>Clumps + FerriteCore</h4>
+      <p>XP and RAM optimization for server performance</p>
+    </div>
+    <div class="mod-item">
+      <h4>FTB Teams / Chunks</h4>
+      <p>Team formation and chunk claiming for protection</p>
+    </div>
+  </div>
+
+  <div class="highlight-box" style="margin-top: 20px;">
+    <strong>📎 Modpack Distribution:</strong> Create the modpack as a CurseForge or Modrinth modpack. Players download it via the launcher with one click. Alternative: ZIP download + MultiMC/Prism Launcher import.
+  </div>
+</div>
+
+<!-- TODO -->
+<div class="section" id="todo">
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-info">✅</div>
+      <h3>Modpack Launch Checklist</h3>
+    </div>
+
+    <h4 style="color: var(--accent); margin: 12px 0 8px;">Phase 1 — Mod Selection & Testing (Week 1–2)</h4>
+    <ul class="checklist">
+      <li><span class="step-num">1</span>Finalize mod list with community input</li>
+      <li><span class="step-num">2</span>Test mod compatibility in local instance</li>
+      <li><span class="step-num">3</span>Configure mod settings and balance</li>
+      <li><span class="step-num">4</span>Set up server-side performance mods</li>
+    </ul>
+
+    <h4 style="color: var(--accent2); margin: 20px 0 8px;">Phase 2 — Server Setup (Week 2–3)</h4>
+    <ul class="checklist">
+      <li><span class="step-num">5</span>Choose hosting and order server (16GB+ RAM)</li>
+      <li><span class="step-num">6</span>Install NeoForge 1.20.1 server</li>
+      <li><span class="step-num">7</span>Upload modpack and configs</li>
+      <li><span class="step-num">8</span>Generate Earth Map / set up Terra mod</li>
+      <li><span class="step-num">9</span>Configure FTB Teams & Chunks for protection</li>
+    </ul>
+
+    <h4 style="color: var(--accent3); margin: 20px 0 8px;">Phase 3 — Distribution & Launch (Week 3–4)</h4>
+    <ul class="checklist">
+      <li><span class="step-num">10</span>Upload modpack to CurseForge / Modrinth</li>
+      <li><span class="step-num">11</span>Internal testing with 5–10 players</li>
+      <li><span class="step-num">12</span>Pin modpack download link in Discord</li>
+      <li><span class="step-num">13</span>Write modpack guide & install instructions</li>
+      <li><span class="step-num">14</span>Soft launch → Feedback → Full launch</li>
+    </ul>
+  </div>
+
+  <div class="highlight-box">
+    <strong>💡 Tip:</strong> Test the modpack thoroughly before launch — mod conflicts can take days to debug. Start small with core mods and add the rest after stability is confirmed.
+  </div>
+</div>
+
+<div class="footer">
+  GUNTHERCRAFT · MODPACK SERVER · 2026
+</div>
+
+</div>
+
+<script>
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

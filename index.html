@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gunthercraft — Server Plan 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface2: #1a1a27;
+    --border: #2a2a3a;
+    --accent: #00ff88;
+    --accent2: #c084fc;
+    --accent3: #6366f1;
+    --text: #e0e0e8;
+    --text-dim: #8888a0;
+    --java: #e76f00;
+    --bedrock: #4a9c5e;
+    --modpack: #c084fc;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .bg-grid {
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+
+  .logo-text {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 14px;
+    color: var(--accent);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    opacity: 0.7;
+  }
+
+  h1 {
+    font-size: clamp(40px, 8vw, 72px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, var(--accent), #00cc6a, var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    color: var(--text-dim);
+    margin-top: 12px;
+    font-weight: 400;
+  }
+
+  .intro {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin: 50px 0;
+    text-align: center;
+  }
+
+  .intro p {
+    color: var(--text-dim);
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .intro strong { color: var(--text); }
+
+  .choice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 40px 0;
+  }
+
+  @media (max-width: 800px) {
+    .choice-grid { grid-template-columns: 1fr; }
+  }
+
+  .choice-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .choice-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--card-accent, var(--accent));
+    opacity: 0.8;
+  }
+
+  .choice-card.crossplay { --card-accent: var(--accent); }
+  .choice-card.modpack { --card-accent: var(--modpack); }
+
+  .choice-card:hover {
+    border-color: var(--card-accent);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  }
+
+  .choice-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+
+  .choice-card h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--card-accent);
+  }
+
+  .choice-card .tagline {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .choice-card p {
+    color: var(--text-dim);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+
+  .choice-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 24px;
+  }
+
+  .choice-card li {
+    padding: 4px 0;
+    padding-left: 18px;
+    position: relative;
+    color: var(--text-dim);
+    font-size: 14px;
+  }
+
+  .choice-card li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--card-accent);
+  }
+
+  .choice-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--card-accent);
+    color: var(--bg);
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    font-family: 'Share Tech Mono', monospace;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    align-self: flex-start;
+    transition: transform 0.2s;
+  }
+
+  .choice-card:hover .choice-cta { transform: translateX(4px); }
+
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Share Tech Mono', monospace;
+    margin: 2px 4px 14px 0;
+  }
+
+  .tag-java { background: rgba(231,111,0,0.2); color: var(--java); }
+  .tag-bedrock { background: rgba(74,156,94,0.2); color: var(--bedrock); }
+  .tag-mod { background: rgba(192,132,252,0.2); color: var(--modpack); }
+
+  .footer {
+    text-align: center;
+    margin-top: 80px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 13px;
+    font-family: 'Share Tech Mono', monospace;
+  }
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="container">
+
+<header>
+  <div class="logo-text">Server Plan 2026</div>
+  <h1>⛏ GUNTHERCRAFT</h1>
+  <p class="subtitle">Two Servers. One Community. 50+ Players.</p>
+</header>
+
+<div class="intro">
+  <p>
+    Gunthercraft is a community Minecraft server with <strong>two parallel game modes</strong>:
+    a <strong>Crossplay server</strong> where Java and Bedrock players play together with quality-of-life plugins,
+    and a <strong>Java Modded server</strong> with a full community-built modpack.
+    Bedrock can't run Forge mods, so we run both — everyone gets to play.
+  </p>
+</div>
+
+<div class="choice-grid">
+
+  <a href="crossplay.html" class="choice-card crossplay">
+    <div class="choice-icon">🌍</div>
+    <h2>Crossplay Server</h2>
+    <div class="tagline">Plugin · Paper · GeyserMC</div>
+    <div>
+      <span class="tag tag-java">JAVA</span>
+      <span class="tag tag-bedrock">BEDROCK</span>
+    </div>
+    <p>Near-vanilla gameplay with plugins. Java and Bedrock players join the same world through GeyserMC + Floodgate. Earth Map, no mod downloads required.</p>
+    <ul>
+      <li>Paper / Purpur 1.21.x</li>
+      <li>GeyserMC + Floodgate crossplay</li>
+      <li>Earth Map + BlueMap web map</li>
+      <li>EssentialsX, WorldGuard, LuckPerms</li>
+      <li>60–80 player slots</li>
+    </ul>
+    <span class="choice-cta">View Plan →</span>
+  </a>
+
+  <a href="modpack.html" class="choice-card modpack">
+    <div class="choice-icon">📦</div>
+    <h2>Modpack Server</h2>
+    <div class="tagline">Modded · NeoForge · Community Mix</div>
+    <div>
+      <span class="tag tag-java">JAVA ONLY</span>
+      <span class="tag tag-mod">NEOFORGE</span>
+    </div>
+    <p>The full mod experience: warfare, Create automation, horror dimensions, cyberpunk RP. Distributed via CurseForge / Modrinth for one-click install.</p>
+    <ul>
+      <li>NeoForge 1.20.1 (best mod support)</li>
+      <li>Warfare, Create, Horror, Cyberpunk mods</li>
+      <li>Earth Map via Terra mod</li>
+      <li>Simple Voice Chat for RP</li>
+      <li>50–60 player slots</li>
+    </ul>
+    <span class="choice-cta">View Plan →</span>
+  </a>
+
+</div>
+
+<div class="footer">
+  GUNTHERCRAFT · SERVER PLAN · 2026
+</div>
+
+</div>
+
+</body>
+</html>

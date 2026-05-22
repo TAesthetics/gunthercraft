@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gunthercraft Crossplay Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface2: #1a1a27;
+    --border: #2a2a3a;
+    --accent: #00ff88;
+    --accent2: #ff6b35;
+    --accent3: #6366f1;
+    --text: #e0e0e8;
+    --text-dim: #8888a0;
+    --java: #e76f00;
+    --bedrock: #4a9c5e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .bg-grid {
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px 60px;
+  }
+
+  .nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 30px;
+  }
+
+  .nav-bar a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-bar a:hover { color: var(--accent); }
+  .nav-bar a.active { color: var(--accent); }
+
+  .nav-links { display: flex; gap: 20px; }
+
+  header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+
+  .logo-text {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 14px;
+    color: var(--accent);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    opacity: 0.7;
+  }
+
+  h1 {
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, var(--accent), #00cc6a, var(--accent3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    color: var(--text-dim);
+    margin-top: 8px;
+    font-weight: 400;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 30px;
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 4px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .tab {
+    flex: 1;
+    min-width: 120px;
+    padding: 12px 16px;
+    border: none;
+    background: transparent;
+    color: var(--text-dim);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 9px;
+    transition: all 0.25s;
+    white-space: nowrap;
+  }
+
+  .tab:hover { color: var(--text); background: var(--surface2); }
+  .tab.active { background: var(--accent); color: var(--bg); }
+
+  .section { display: none; animation: fadeIn 0.3s ease; }
+  .section.active { display: block; }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s;
+  }
+
+  .card:hover { border-color: rgba(0,255,136,0.3); }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .icon-java { background: rgba(231,111,0,0.15); }
+  .icon-bedrock { background: rgba(74,156,94,0.15); }
+  .icon-info { background: rgba(0,255,136,0.15); }
+  .icon-warn { background: rgba(255,107,53,0.15); }
+
+  .card h3 { font-size: 20px; font-weight: 700; }
+
+  .card p, .card li {
+    color: var(--text-dim);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .card ul { list-style: none; padding: 0; }
+  .card li { padding: 6px 0; padding-left: 20px; position: relative; }
+
+  .card li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Share Tech Mono', monospace;
+    margin: 2px;
+  }
+
+  .tag-java { background: rgba(231,111,0,0.2); color: var(--java); }
+  .tag-bedrock { background: rgba(74,156,94,0.2); color: var(--bedrock); }
+
+  .plugin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .plugin-item {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    transition: all 0.2s;
+  }
+
+  .plugin-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+  .plugin-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; color: var(--accent); }
+  .plugin-item p { font-size: 13px; color: var(--text-dim); line-height: 1.4; }
+
+  .checklist { list-style: none; padding: 0; }
+
+  .checklist li {
+    padding: 10px 14px;
+    margin: 6px 0;
+    background: var(--surface2);
+    border-radius: 8px;
+    border-left: 3px solid var(--accent);
+    font-size: 15px;
+    color: var(--text);
+    padding-left: 16px;
+  }
+
+  .checklist li::before { display: none; }
+
+  .step-num {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 6px;
+    text-align: center;
+    line-height: 24px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 10px;
+    font-family: 'Share Tech Mono', monospace;
+  }
+
+  .highlight-box {
+    background: rgba(0,255,136,0.05);
+    border: 1px solid rgba(0,255,136,0.2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+
+  .highlight-box.warn {
+    background: rgba(255,107,53,0.05);
+    border-color: rgba(255,107,53,0.2);
+  }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+
+  th {
+    text-align: left;
+    padding: 10px 12px;
+    background: var(--surface2);
+    color: var(--accent);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-dim); }
+  tr:hover td { color: var(--text); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+
+  .footer {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 13px;
+    font-family: 'Share Tech Mono', monospace;
+  }
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="container">
+
+<nav class="nav-bar">
+  <a href="index.html">← Gunthercraft</a>
+  <div class="nav-links">
+    <a href="crossplay.html" class="active">Crossplay Server</a>
+    <a href="modpack.html">Modpack Server</a>
+  </div>
+</nav>
+
+<header>
+  <div class="logo-text">Java + Bedrock Crossplay</div>
+  <h1>🌍 GUNTHERCRAFT CROSSPLAY</h1>
+  <p class="subtitle">Paper · GeyserMC · Floodgate — Plugin Server for Everyone</p>
+</header>
+
+<div class="tabs" id="tabs">
+  <button class="tab active" data-tab="overview">Overview</button>
+  <button class="tab" data-tab="server">Server Setup</button>
+  <button class="tab" data-tab="plugins">Plugins</button>
+  <button class="tab" data-tab="todo">To-Do</button>
+</div>
+
+<!-- OVERVIEW -->
+<div class="section active" id="overview">
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-info">📋</div>
+      <h3>The Concept</h3>
+    </div>
+    <p>The Gunthercraft Crossplay server runs on <strong>Paper/Purpur with GeyserMC + Floodgate</strong>, letting Java AND Bedrock players join the same world. Near-vanilla gameplay with quality-of-life plugins, an Earth Map as the main world, and zero mod downloads required.</p>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon icon-bedrock">🌐</div>
+        <h3>Crossplay Server</h3>
+      </div>
+      <p><span class="tag tag-java">JAVA</span> <span class="tag tag-bedrock">BEDROCK</span></p>
+      <ul>
+        <li>Near-vanilla with plugins (no mods)</li>
+        <li>Earth Map as the main world</li>
+        <li>GeyserMC + Floodgate crossplay</li>
+        <li>Core plugins: Essentials, WorldGuard, Dynmap</li>
+        <li>Bedrock players join with no extra setup</li>
+        <li>BlueMap web map for the world</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon icon-info">✨</div>
+        <h3>Who is it for?</h3>
+      </div>
+      <ul>
+        <li>Players on phones, consoles, or Win10 edition</li>
+        <li>Casual players who want vanilla feel</li>
+        <li>Friends without modded launchers</li>
+        <li>Anyone who hates mod downloads</li>
+        <li>The "join and play" crowd</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>💡 Why GeyserMC?</strong><br>
+    GeyserMC translates the Bedrock protocol to Java in real time. Your server runs Java, but Bedrock players connect normally via the Bedrock launcher. Floodgate handles authentication for Bedrock accounts without Java accounts.
+  </div>
+
+  <div class="highlight-box warn">
+    <strong>⚠️ No Mods:</strong> This server cannot use Forge/NeoForge mods because Paper is a plugin-based fork of Spigot. For the full mod experience, see the <a href="modpack.html" style="color: var(--accent);">Modpack Server plan</a>.
+  </div>
+</div>
+
+<!-- SERVER -->
+<div class="section" id="server">
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-bedrock">🌐</div>
+      <h3>Server Specs</h3>
+    </div>
+    <table>
+      <tr><th>Property</th><th>Details</th></tr>
+      <tr><td>Software</td><td>Paper / Purpur MC + GeyserMC + Floodgate</td></tr>
+      <tr><td>MC Version</td><td>1.21.x (latest stable)</td></tr>
+      <tr><td>RAM</td><td>Min. 8 GB, recommended 12 GB for 50+ players</td></tr>
+      <tr><td>CPU</td><td>Min. 4 cores (high single-thread performance)</td></tr>
+      <tr><td>Storage</td><td>SSD with min. 20 GB free</td></tr>
+      <tr><td>Map</td><td>Earth Map (BlueMap as web map)</td></tr>
+      <tr><td>Player Slots</td><td>60–80</td></tr>
+      <tr><td>Java Version</td><td>Java 21</td></tr>
+    </table>
+
+    <div class="highlight-box">
+      <strong>💡 Paper vs Purpur:</strong> Paper is the standard high-performance Spigot fork. Purpur extends Paper with more config options. Both work with GeyserMC. Start with Paper unless you need Purpur-specific features.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-bedrock">🔌</div>
+      <h3>GeyserMC + Floodgate Setup</h3>
+    </div>
+    <p>The crossplay magic happens through two plugins:</p>
+    <ul>
+      <li><strong>GeyserMC</strong> — Protocol translator (Bedrock ↔ Java)</li>
+      <li><strong>Floodgate</strong> — Auth bridge so Bedrock accounts can join without Java accounts</li>
+    </ul>
+    <p style="margin-top:10px"><strong>Bedrock port:</strong> 19132 (UDP) — make sure to open this in firewall and provider settings.</p>
+    <p><strong>Java port:</strong> 25565 (TCP) — standard MC port.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-info">💰</div>
+      <h3>Hosting Options</h3>
+    </div>
+    <table>
+      <tr><th>Provider</th><th>Type</th><th>Price (approx.)</th><th>Notes</th></tr>
+      <tr><td>Hetzner</td><td>VPS / Dedicated</td><td>from ~€20/month</td><td>Best value in EU</td></tr>
+      <tr><td>Contabo</td><td>VPS</td><td>from ~€15/month</td><td>Budget-friendly, DE location</td></tr>
+      <tr><td>Bloom Host</td><td>MC Hoster</td><td>from ~$15/month</td><td>Managed, easy setup</td></tr>
+      <tr><td>Oracle Cloud</td><td>Free Tier VPS</td><td>Free</td><td>ARM, 24GB RAM free tier</td></tr>
+      <tr><td>Self-host</td><td>Own hardware</td><td>Electricity</td><td>Full control, needs good upload</td></tr>
+    </table>
+    <p style="margin-top:10px">Crossplay servers are lighter than modded — 12 GB RAM handles 60+ players easily on Paper.</p>
+  </div>
+</div>
+
+<!-- PLUGINS -->
+<div class="section" id="plugins">
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-info">🔌</div>
+      <h3>Plugin Stack</h3>
+    </div>
+    <p>A carefully picked set of plugins that work with Paper and don't break Bedrock crossplay.</p>
+  </div>
+
+  <h3 style="margin: 20px 0 12px; color: var(--accent);">🌐 Crossplay Core</h3>
+  <div class="plugin-grid">
+    <div class="plugin-item">
+      <h4>GeyserMC</h4>
+      <p>Bedrock-to-Java protocol bridge — the heart of crossplay</p>
+    </div>
+    <div class="plugin-item">
+      <h4>Floodgate</h4>
+      <p>Auth bridge for Bedrock accounts without Java accounts</p>
+    </div>
+    <div class="plugin-item">
+      <h4>Geyser-Skin-Manager</h4>
+      <p>Custom skin support for Bedrock players</p>
+    </div>
+    <div class="plugin-item">
+      <h4>ViaVersion</h4>
+      <p>Lets players on older/newer MC versions connect</p>
+    </div>
+  </div>
+
+  <h3 style="margin: 24px 0 12px; color: var(--accent);">⚙️ Essentials & Economy</h3>
+  <div class="plugin-grid">
+    <div class="plugin-item">
+      <h4>EssentialsX</h4>
+      <p>Basic commands, homes, warps, kits, /tpa</p>
+    </div>
+    <div class="plugin-item">
+      <h4>EssentialsX Chat</h4>
+      <p>Chat formatting and prefix support</p>
+    </div>
+    <div class="plugin-item">
+      <h4>Vault</h4>
+      <p>Economy/permissions API bridge for other plugins</p>
+    </div>
+  </div>
+
+  <h3 style="margin: 24px 0 12px; color: var(--accent);">🛡️ Permissions & Protection</h3>
+  <div class="plugin-grid">
+    <div class="plugin-item">
+      <h4>LuckPerms</h4>
+      <p>Best-in-class permission and role management</p>
+    </div>
+    <div class="plugin-item">
+      <h4>WorldGuard</h4>
+      <p>Region protection — claim and protect areas</p>
+    </div>
+    <div class="plugin-item">
+      <h4>WorldEdit</h4>
+      <p>Bulk world editing for builders and admins</p>
+    </div>
+    <div class="plugin-item">
+      <h4>CoreProtect</h4>
+      <p>Anti-grief — log and roll back block changes</p>
+    </div>
+  </div>
+
+  <h3 style="margin: 24px 0 12px; color: var(--accent);">🗺️ Maps & Visualization</h3>
+  <div class="plugin-grid">
+    <div class="plugin-item">
+      <h4>BlueMap</h4>
+      <p>3D web-based world map — looks amazing</p>
+    </div>
+    <div class="plugin-item">
+      <h4>Dynmap</h4>
+      <p>2D web map alternative — lighter weight</p>
+    </div>
+    <div class="plugin-item">
+      <h4>ChunkyBorder</h4>
+      <p>World borders + pre-generation for performance</p>
+    </div>
+  </div>
+
+  <h3 style="margin: 24px 0 12px; color: var(--accent);">💬 Discord & Community</h3>
+  <div class="plugin-grid">
+    <div class="plugin-item">
+      <h4>DiscordSRV</h4>
+      <p>Discord ↔ in-game chat bridge with role sync</p>
+    </div>
+    <div class="plugin-item">
+      <h4>AdvancedBan</h4>
+      <p>Modern ban/mute system with reasons</p>
+    </div>
+  </div>
+
+  <h3 style="margin: 24px 0 12px; color: var(--accent);">⚡ Performance</h3>
+  <div class="plugin-grid">
+    <div class="plugin-item">
+      <h4>Spark</h4>
+      <p>Performance profiler — find lag sources</p>
+    </div>
+    <div class="plugin-item">
+      <h4>ClearLag / Limited Lag</h4>
+      <p>Entity culling and TPS optimization</p>
+    </div>
+  </div>
+
+  <div class="highlight-box" style="margin-top: 20px;">
+    <strong>📎 Plugin Compatibility:</strong> All listed plugins work with Paper and are GeyserMC-friendly. Some Bedrock players may see slightly different UI for custom inventories — test before launch.
+  </div>
+</div>
+
+<!-- TODO -->
+<div class="section" id="todo">
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-info">✅</div>
+      <h3>Crossplay Launch Checklist</h3>
+    </div>
+
+    <h4 style="color: var(--accent); margin: 12px 0 8px;">Phase 1 — Infrastructure (Week 1)</h4>
+    <ul class="checklist">
+      <li><span class="step-num">1</span>Choose hosting and order server (12GB RAM)</li>
+      <li><span class="step-num">2</span>Install Paper / Purpur 1.21.x</li>
+      <li><span class="step-num">3</span>Open ports: 25565 (TCP, Java) + 19132 (UDP, Bedrock)</li>
+      <li><span class="step-num">4</span>Set up reverse proxy / DDoS protection if needed</li>
+    </ul>
+
+    <h4 style="color: var(--accent2); margin: 20px 0 8px;">Phase 2 — Crossplay & Plugins (Week 1–2)</h4>
+    <ul class="checklist">
+      <li><span class="step-num">5</span>Install GeyserMC + Floodgate</li>
+      <li><span class="step-num">6</span>Test Bedrock connection from phone/console</li>
+      <li><span class="step-num">7</span>Generate and import Earth Map (BlueMap recommended)</li>
+      <li><span class="step-num">8</span>Install core plugins (Essentials, LuckPerms, WorldGuard)</li>
+      <li><span class="step-num">9</span>Configure CoreProtect and permissions</li>
+    </ul>
+
+    <h4 style="color: var(--accent3); margin: 20px 0 8px;">Phase 3 — Community & Launch (Week 2–3)</h4>
+    <ul class="checklist">
+      <li><span class="step-num">10</span>Set up Discord server with channels and roles</li>
+      <li><span class="step-num">11</span>Configure DiscordSRV chat bridge</li>
+      <li><span class="step-num">12</span>Write rules and Bedrock connection guide</li>
+      <li><span class="step-num">13</span>Brief staff team and set up moderation tools</li>
+      <li><span class="step-num">14</span>Soft launch with friends → Feedback → Full launch</li>
+    </ul>
+  </div>
+
+  <div class="highlight-box">
+    <strong>💡 Tip:</strong> Launch the Crossplay server first — it's faster to set up and accessible for everyone. The modpack server can come 1–2 weeks later once mod testing is complete.
+  </div>
+</div>
+
+<div class="footer">
+  GUNTHERCRAFT · CROSSPLAY SERVER · 2026
+</div>
+
+</div>
+
+<script>
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
