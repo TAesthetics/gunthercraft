@@ -1,0 +1,43 @@
+# Gunthercraft - WorldGuard config.yml
+# Download: https://dev.bukkit.org/projects/worldguard
+# =====================================================
+
+mop-up-unprotected-entity-spawns: false
+
+global-region:
+  # Standardmäßige Flags für die gesamte Welt (global region)
+  # Kann per Befehl überschrieben werden: /rg flag __global__ <flag> <wert>
+  build: allow
+  pvp: allow
+  tnt: deny
+  chest-access: allow
+  vehicle-place: allow
+  vehicle-destroy: allow
+  mob-spawning: allow
+  creeper-explosion: deny   # Creeper-Explosionen global deaktivieren
+  ghast-fireball: deny
+  other-explosion: deny
+  fire-spread: deny         # Feuerausbreitung deaktivieren
+  lava-fire: deny
+  lightning: allow
+  block-trampling: deny     # Farmland durch Springen nicht zerstörbar
+  use: allow
+
+host-keys: {}
+
+summary-on-start: true
+
+# Schutz auf der Spawn-Region setzen:
+# /rg define spawn           (Region markieren mit //wand vorher)
+# /rg flag spawn build deny
+# /rg flag spawn pvp deny
+# /rg flag spawn greeting "§aWillkommen auf Gunthercraft!"
+
+# Welteinstellungen
+worlds:
+  world:
+    summary-on-start: true
+  world_nether:
+    summary-on-start: true
+  world_the_end:
+    summary-on-start: true

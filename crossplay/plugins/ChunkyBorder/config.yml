@@ -1,0 +1,46 @@
+# Gunthercraft - ChunkyBorder config.yml
+# Weltgrenzen + Chunk-Vorwärmung
+# Download: https://www.spigotmc.org/resources/chunkyborder.80461/
+# ================================================================
+# HINWEIS: ChunkyBorder setzt automatisch Vanilla-Weltgrenzen.
+# Chunky (das Hauptplugin) vorher installieren für Chunk-Pregeneration!
+
+# Weltgrenzen für die Crossplay-Server-Welten
+# Earth-Map hat eigene Dimensionen - entsprechend anpassen!
+
+# Grenzen werden per Befehl gesetzt, nicht über diese Config-Datei.
+# Die Config wird automatisch befüllt.
+
+# === SETUP-BEFEHLE ===
+#
+# Hauptwelt (Earth-Map) - 10000 Block Radius (anpassen!)
+# /chunky world world
+# /chunky center 0 0
+# /chunky radius 10000
+# /chunky start
+# /chunkyborder add world
+#
+# Nether - proportional zur Hauptwelt (1/8 des Overworld-Radius)
+# /chunky world world_nether
+# /chunky center 0 0
+# /chunky radius 1250
+# /chunky start
+# /chunkyborder add world_nether
+#
+# End - kleinere Grenze
+# /chunky world world_the_end
+# /chunky center 0 0
+# /chunky radius 5000
+# /chunky start
+# /chunkyborder add world_the_end
+#
+# Pregenerierung starten (wichtig vor Server-Launch!):
+# /chunky world world && /chunky start
+# Status prüfen: /chunky status
+# Fortschritt: /chunky progress
+
+# === EARTH-MAP HINWEIS ===
+# Beim Einsatz einer Earth-Map (z.B. via Terra oder Custom-Import):
+# Die World-Bordergrenzen auf die tatsächliche Kartengröße anpassen.
+# Earth-Map 1:1000 hat ca. ±18850 Blöcke in X und ±9500 in Z.
+# /worldborder set 40000  (für Diameter, nicht Radius)

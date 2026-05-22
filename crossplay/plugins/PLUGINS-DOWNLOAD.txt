@@ -1,0 +1,70 @@
+========================================
+GUNTHERCRAFT - CROSSPLAY SERVER PLUGINS
+Plugin-Download-Liste (alle Versionen für Paper 1.21.x)
+========================================
+
+[PFLICHT - CROSSPLAY]
+GeyserMC (Spigot-Version)
+  https://geysermc.org/download
+  -> Geyser-Spigot.jar in /plugins/ legen
+
+Floodgate (Spigot-Version)
+  https://geysermc.org/download
+  -> floodgate-spigot.jar in /plugins/ legen
+  !! Floodgate MUSS vor Geyser installiert werden !!
+
+[PFLICHT - GRUNDFUNKTIONEN]
+EssentialsX
+  https://essentialsx.net/downloads.html
+  -> EssentialsX.jar + EssentialsXChat.jar + EssentialsXSpawn.jar
+
+LuckPerms
+  https://luckperms.net/download
+  -> LuckPerms-Bukkit-x.x.x.jar
+
+[PFLICHT - SCHUTZ]
+WorldGuard
+  https://dev.bukkit.org/projects/worldguard/files
+  -> worldguard-bukkit-x.x.x.jar
+
+WorldEdit
+  https://dev.bukkit.org/projects/worldedit/files
+  -> worldedit-bukkit-x.x.x.jar (Voraussetzung für WorldGuard!)
+
+CoreProtect
+  https://www.spigotmc.org/resources/coreprotect.8631/
+
+[EMPFOHLEN - KARTE & WELT]
+BlueMap
+  https://www.spigotmc.org/resources/bluemap.83557/
+  -> Alternativ: Dynmap (https://www.spigotmc.org/resources/dynmap.274/)
+
+Chunky (Chunk-Vorwärmung)
+  https://www.spigotmc.org/resources/chunky.81811/
+
+ChunkyBorder (Weltgrenzen mit Chunky)
+  https://www.spigotmc.org/resources/chunkyborder.80461/
+
+[EMPFOHLEN - COMMUNITY]
+DiscordSRV
+  https://www.spigotmc.org/resources/discordsrv.18494/
+  -> Bot-Token in config.yml eintragen!
+
+[PERFORMANCE]
+Spark (Profiler)
+  https://spark.lucko.me/download
+
+ViaVersion (Mehrversionssupport)
+  https://www.spigotmc.org/resources/viaversion.19254/
+
+ViaBackwards (Ältere Clients)
+  https://www.spigotmc.org/resources/viabackwards.27448/
+
+========================================
+INSTALLATIONS-REIHENFOLGE:
+1. Paper herunterladen: https://papermc.io/downloads
+2. Server einmal starten (EULA akzeptieren), dann stoppen
+3. Plugins in /plugins/ legen: Floodgate ZUERST, dann Geyser
+4. Server starten, Logs auf Fehler prüfen
+5. Firewall: Port 25565 (TCP/Java) + 19132 (UDP/Bedrock) öffnen
+========================================

@@ -1,0 +1,38 @@
+# Gunthercraft - Floodgate config.yml
+# Erlaubt Bedrock-Spielern ohne Java-Account den Beitritt
+# Download: https://geysermc.org/download (Floodgate-Spigot)
+# ============================================================
+
+# Präfix der Bedrock-Spielernamen (verhindert Namenskonflikte mit Java-Spielern)
+# Standard ist "." (Punkt) - ein unsichtbares Zeichen auf Bedrock
+username-prefix: "."
+
+# Bedrock-Spieler können alle Sprachen nutzen (auch solche mit Sonderzeichen)
+# Achtung: manche Plugins reagieren empfindlich darauf
+replace-spaces: true
+
+# Zeigt den Bedrock-Plattform-Typ im Spieler-Info an
+# (z.B. Xbox, PlayStation, Switch, Mobile, Windows)
+send-floodgate-data: true
+
+# Wenn Geyser und Floodgate auf unterschiedlichen Servern laufen
+# (für BungeeCord/Velocity-Setups)
+disconnect:
+  invalid-key: Please connect through GeyserMC.
+  invalid-arguments-length: Expected {0} arguments, got {1}.
+
+# Datenbanktyp für gespeicherte Bedrock-Link-Daten
+# "sqlite" für lokale Datenbank (Standard, reicht für einzelne Server)
+player-link:
+  enabled: true
+  type: sqlite
+  # Ermöglicht das Verknüpfen von Bedrock- und Java-Accounts (/linkaccount)
+  allowed: true
+  # Verknüpfung nur mit eigenem Java-Account erlauben
+  require-own-linking: false
+  # Wie lange ein Link-Code gültig ist (in Sekunden)
+  link-code-timeout: 300
+
+metrics:
+  enabled: true
+  uuid: generateduuid

@@ -1,0 +1,74 @@
+# Gunthercraft - DiscordSRV config.yml
+# Verbindet Minecraft-Chat mit Discord
+# Download: https://www.spigotmc.org/resources/discordsrv.18494/
+# ==================================================================
+# WICHTIG: BotToken muss ausgefüllt werden!
+# Bot erstellen: https://discord.com/developers/applications
+# Bot-Permissions: Send Messages, Read Message History, Manage Roles, Embed Links
+
+# Bot-Token vom Discord Developer Portal
+# Niemals öffentlich teilen!
+BotToken: "HIER_BOT_TOKEN_EINFUEGEN"
+
+# Channel-Mapping: Minecraft-Kanal -> Discord-Channel-ID
+Channels:
+  global: "DISCORD_CHANNEL_ID_FUER_CHAT"
+
+# Weitere Kanäle (auskommentiert, bei Bedarf aktivieren)
+# ConsoleChannel: "CONSOLE_CHANNEL_ID"
+
+# Willkommen / Abschied-Nachrichten auch auf Discord posten
+DiscordConsoleChannelFilters:
+  - ".*\\[Async Chat Thread.*"
+
+# In-Game-Nachrichten auf Discord weiterleiten
+DiscordChatChannelMinecraftToDiscord: true
+DiscordChatChannelDiscordToMinecraft: true
+
+# Minecraft -> Discord Format
+MinecraftChatToDiscordMessageFormat: "**%username%**: %message%"
+MinecraftChatToDiscordMessageFormatNoPrimaryGroup: "**%username%**: %message%"
+
+# Discord -> Minecraft Format
+DiscordToMinecraftMessageFormat: "§9[Discord] §b%username%§r: %message%"
+DiscordToMinecraftMessageFormatNoPrimaryGroup: "§9[Discord] §b%username%§r: %message%"
+
+# Spieler-Join/Leave auf Discord
+DiscordChatChannelServerStartMessage: "Server **GESTARTET**"
+DiscordChatChannelServerStopMessage: "Server **GESTOPPT**"
+
+# Join-Nachrichten
+DiscordJoinMessages: true
+JoinMessage: "**%username%** ist dem Server beigetreten."
+LeaveMessage: "**%username%** hat den Server verlassen."
+DeathMessage: "**%username%** ist gestorben: %deathmessage%"
+
+# Spielerliste in Discord anzeigen
+UpdateChannelName: false
+DiscordChatChannelListPlayers: true
+
+# Minecraft-Befehle aus Discord ausführen (Admin-Funktion)
+DiscordConsoleChannelEnabled: false
+# ConsoleChannel: "ADMIN_CHANNEL_ID"
+DiscordConsoleChannelWhitelist: []
+DiscordConsoleChannelBlacklist: ["stop", "ban-ip"]
+
+# Embeds verwenden statt Plain-Text
+DiscordChatChannelUseDiscordEmbeds: false
+
+# Mention-Schutz (verhindert @everyone/@here aus Minecraft)
+DiscordChatChannelTranslateMentions: true
+DiscordChatChannelAllowedMentions:
+  - USER
+
+# Rollensynchronisation (LuckPerms-Gruppen <-> Discord-Rollen)
+SynchronizePermissionsOnLogin: false
+# GroupSynchronizationPrimaryGroupEnabled: false
+
+# Webhook-Unterstützung (bessere Darstellung mit Spieler-Avatars)
+# Webhook URL im Discord-Kanal unter Einstellungen > Integrationen erstellen
+DiscordChatChannelWebhookEnabled: false
+# DiscordChatChannelWebhookUrl: "WEBHOOK_URL"
+
+# Sprache
+DebugJDA: false

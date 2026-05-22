@@ -1,0 +1,44 @@
+{
+	# Gunthercraft - FTB Chunks Server Config
+	# Chunk-Claims für Gebietsschutz
+	# =====================================
+
+	# Maximale Chunks die ein Spieler beanspruchen kann
+	# Empfehlung: 100-250 pro Spieler für Earth-Map
+	max_claimed_chunks: 150
+
+	# Maximale geladene Chunks (Chunk-Loading) pro Spieler
+	# Chunk-Loading hält Chunks auch ohne Spieler geladen (teuer!)
+	max_force_loaded_chunks: 8
+
+	# Nur Team-Besitzer dürfen Chunks claimen
+	# false = alle Team-Mitglieder können claimen
+	only_owners_can_chunk_claim: false
+
+	# Chunk-Loader im Schlafmodus (wenn Spieler offline)
+	# false = Chunks bleiben auch offline geladen
+	# true = Chunks entladen wenn kein Spieler online
+	# EMPFEHLUNG: true für Performance
+	force_load_chunks_sleeping: true
+
+	# Explosionen in geclaimten Chunks verhindern (Creeper, TNT etc.)
+	# WICHTIG für Warfare-Server - spieler können mit Kanonen etc. angreifen
+	# false = Warfare zwischen Teams erlaubt
+	# true = Gebiete unzerstörbar (Schutz für Builds)
+	disable_explosion_damage: false
+
+	# PvP in geclaimten Chunks
+	# false = PvP überall erlaubt (Warfare!)
+	disable_pvp_in_claimed_chunks: false
+
+	# Fremde Spieler können keine Blöcke in geclaimten Chunks platzieren/abbauen
+	# true = Griefer-Schutz aktiv (empfohlen)
+	allow_fake_players_to_grief_claimed_chunks: false
+	allow_unknown_entity_to_grief_claimed_chunks: false
+	allow_monsters_to_grief_claimed_chunks: false
+	allow_mob_griefing_in_claimed_chunks: false
+
+	# Anzeigemodus für Chunk-Grenzen
+	# HIGHLIGHT = Chunks leuchten kurz auf beim Überqueren
+	chunk_border_party_mode: "HIGHLIGHT"
+}
