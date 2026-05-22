@@ -2,45 +2,45 @@
 # Download: https://essentialsx.net/downloads.html
 # ===================================================
 
-# Locale - Sprache der Nachrichten
-locale: de
+# Locale for messages
+locale: en
 
-# Passwort-Hash-Algorithmus (für OfflineMode-Server irrelevant wenn online-mode=true)
-# Optionen: MD5, SHA1, SHA256, SHA512, bcrypt
-# hash: SHA256  # auskommentiert weil online-mode=true
+# Password hash algorithm (irrelevant for online-mode servers)
+# Options: MD5, SHA1, SHA256, SHA512, bcrypt
+# hash: SHA256  # commented out because online-mode=true
 
-# Teleportation-Verzögerung in Sekunden (0 = sofort)
+# Teleportation delay in seconds (0 = instant)
 teleport-safety: true
 teleport-delay: 3
 teleport-cooldown: 5
 teleport-back-when-hurt: false
 
-# Home-Limit pro Spieler
+# Home limit per player
 sethome-multiple:
   default: 5
   vip: 15
   admin: unlimited
 
-# /back-Befehl
+# /back command
 respawn-listener-priority: normal
 respawn-at-home: false
 
 # Spawn
 spawn-join-other-worlds: false
 newbies:
-  # Willkommensnachricht für neue Spieler
-  announce-format: "§8[§aGunthercraft§8] §7{DISPLAYNAME} §aist dem Server beigetreten!"
+  # Welcome message for new players
+  announce-format: "§8[§aGunthercraft§8] §7{DISPLAYNAME} §ahas joined the server!"
   spawnpoint: spawn
   kit: ""
 
-# Kits - nur aktivieren wenn nötig
+# Kit example (uncomment to enable)
 # kits:
 #   starter:
 #     delay: 0
 #     items:
 #       - 32 bread
 
-# Spawn-Schutz beim ersten Join
+# Join / quit messages
 custom-join-message: "§8[§a+§8] §7{DISPLAYNAME}"
 custom-quit-message: "§8[§c-§8] §7{DISPLAYNAME}"
 custom-new-username-message: ""
@@ -48,13 +48,13 @@ custom-new-username-message: ""
 # Economy
 economy-log-enabled: false
 economy-log-update-enabled: false
-# Startgeld für neue Spieler
+# Starting balance for new players
 starting-balance: 500
-# Währungsname
+# Currency symbol
 currency-symbol: "$"
 currency-symbol-suffix: false
 
-# Nickname-Einstellungen
+# Nickname settings
 change-displayname: true
 add-prefix-in-player-list: true
 disallow-icolors: false
@@ -62,32 +62,32 @@ disallow-icolors: false
 # AFK
 afk-sleep-percentage: 50
 sleep-ignore-gamerule: false
-afk-kick-message: "Du wurdest wegen Inaktivität gekickt."
+afk-kick-message: "You were kicked for being AFK."
 afk-list-name: "§7[AFK] {USERNAME}"
 
-# Nachrichten zwischen Spielern (/msg, /r)
+# Private messages (/msg, /r)
 last-message-reply-recipient: true
 last-message-reply-recipient-timeout: 180
 
-# Befehlssperren (z.B. um Vanilla-Befehle durch EssentialsX zu ersetzen)
+# Disabled commands (e.g. to override vanilla commands with EssentialsX)
 disabled-commands:
   - nick
   # - god
 
-# Sicherheit
+# Staff settings
 op-name-color: "c"
 custom-prefix: ""
 
-# Maildienst
+# Mail service
 mail-per-minute: 1000
 
-# Teleport-Request (/tpa) Timeout
+# Teleport request (/tpa) timeout in seconds
 tpa-accept-cancellation: 120
 
-# Warp-Signschildunterstützung
+# Sign shop support
 enable-eco: true
 
-# Mute-System
+# Mute system - commands blocked when muted
 mute-commands:
   - msg
   - r
@@ -98,9 +98,9 @@ mute-commands:
   - whisper
   - ewhisper
 
-# Chat-Radius (0 = global)
+# Chat radius (0 = global)
 radius: 0
 
-# Format der Chatnachrichten (erfordert EssentialsX Chat)
-# Wird von DiscordSRV überschrieben wenn aktiv
+# Chat message format (requires EssentialsX Chat)
+# Overridden by DiscordSRV when active
 format: '<{DISPLAYNAME}> {MESSAGE}'

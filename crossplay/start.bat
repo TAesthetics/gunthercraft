@@ -2,7 +2,7 @@
 :: Gunthercraft Crossplay Server - Start Script (Windows)
 :: Paper 1.21.x | 8GB RAM | Aikar's Flags
 :: =========================================
-:: Dateiname ggf. auf die heruntergeladene JAR anpassen
+:: Adjust the jar filename if needed
 title Gunthercraft - Crossplay Server
 
 java ^

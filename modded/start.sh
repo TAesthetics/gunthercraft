@@ -2,11 +2,10 @@
 # Gunthercraft Modded Server - Start Script
 # NeoForge 1.20.1 | 16GB RAM
 # ==========================================
-# NeoForge generiert nach Installation automatisch run.sh.
-# Wenn run.sh existiert -> DIESE hier nicht benutzen, stattdessen run.sh.
-# user_jvm_args.txt wird von run.sh automatisch eingelesen.
+# NeoForge generates run.sh automatically after installation.
+# If run.sh exists -> use that instead; it reads user_jvm_args.txt automatically.
 #
-# Manueller Start (falls run.sh fehlt):
+# Manual start (if run.sh is missing):
 
 java \
   -Xms16G \
@@ -36,5 +35,5 @@ java \
   @libraries/net/neoforged/neoforge/*/unix_args.txt \
   nogui
 
-# Alternativ wenn NeoForge run.sh vorhanden:
+# If NeoForge run.sh is present, use this instead:
 # ./run.sh

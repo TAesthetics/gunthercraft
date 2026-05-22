@@ -1,19 +1,19 @@
 ========================================
 GUNTHERCRAFT - CROSSPLAY SERVER PLUGINS
-Plugin-Download-Liste (alle Versionen für Paper 1.21.x)
+Plugin download list (all versions for Paper 1.21.x)
 ========================================
 
-[PFLICHT - CROSSPLAY]
-GeyserMC (Spigot-Version)
+[REQUIRED - CROSSPLAY]
+GeyserMC (Spigot build)
   https://geysermc.org/download
-  -> Geyser-Spigot.jar in /plugins/ legen
+  -> Place Geyser-Spigot.jar in /plugins/
 
-Floodgate (Spigot-Version)
+Floodgate (Spigot build)
   https://geysermc.org/download
-  -> floodgate-spigot.jar in /plugins/ legen
-  !! Floodgate MUSS vor Geyser installiert werden !!
+  -> Place floodgate-spigot.jar in /plugins/
+  !! Install Floodgate BEFORE Geyser !!
 
-[PFLICHT - GRUNDFUNKTIONEN]
+[REQUIRED - CORE FUNCTIONALITY]
 EssentialsX
   https://essentialsx.net/downloads.html
   -> EssentialsX.jar + EssentialsXChat.jar + EssentialsXSpawn.jar
@@ -22,49 +22,49 @@ LuckPerms
   https://luckperms.net/download
   -> LuckPerms-Bukkit-x.x.x.jar
 
-[PFLICHT - SCHUTZ]
+[REQUIRED - PROTECTION]
 WorldGuard
   https://dev.bukkit.org/projects/worldguard/files
   -> worldguard-bukkit-x.x.x.jar
 
 WorldEdit
   https://dev.bukkit.org/projects/worldedit/files
-  -> worldedit-bukkit-x.x.x.jar (Voraussetzung für WorldGuard!)
+  -> worldedit-bukkit-x.x.x.jar (required by WorldGuard!)
 
 CoreProtect
   https://www.spigotmc.org/resources/coreprotect.8631/
 
-[EMPFOHLEN - KARTE & WELT]
+[RECOMMENDED - MAP & WORLD]
 BlueMap
   https://www.spigotmc.org/resources/bluemap.83557/
-  -> Alternativ: Dynmap (https://www.spigotmc.org/resources/dynmap.274/)
+  -> Alternative: Dynmap (https://www.spigotmc.org/resources/dynmap.274/)
 
-Chunky (Chunk-Vorwärmung)
+Chunky (chunk pre-generation)
   https://www.spigotmc.org/resources/chunky.81811/
 
-ChunkyBorder (Weltgrenzen mit Chunky)
+ChunkyBorder (world borders with Chunky)
   https://www.spigotmc.org/resources/chunkyborder.80461/
 
-[EMPFOHLEN - COMMUNITY]
+[RECOMMENDED - COMMUNITY]
 DiscordSRV
   https://www.spigotmc.org/resources/discordsrv.18494/
-  -> Bot-Token in config.yml eintragen!
+  -> Enter your bot token in config.yml!
 
 [PERFORMANCE]
-Spark (Profiler)
+Spark (profiler)
   https://spark.lucko.me/download
 
-ViaVersion (Mehrversionssupport)
+ViaVersion (multi-version support)
   https://www.spigotmc.org/resources/viaversion.19254/
 
-ViaBackwards (Ältere Clients)
+ViaBackwards (older clients)
   https://www.spigotmc.org/resources/viabackwards.27448/
 
 ========================================
-INSTALLATIONS-REIHENFOLGE:
-1. Paper herunterladen: https://papermc.io/downloads
-2. Server einmal starten (EULA akzeptieren), dann stoppen
-3. Plugins in /plugins/ legen: Floodgate ZUERST, dann Geyser
-4. Server starten, Logs auf Fehler prüfen
-5. Firewall: Port 25565 (TCP/Java) + 19132 (UDP/Bedrock) öffnen
+INSTALLATION ORDER:
+1. Download Paper: https://papermc.io/downloads
+2. Start server once (accept EULA), then stop
+3. Place plugins in /plugins/: Floodgate FIRST, then Geyser
+4. Start server and check logs for errors
+5. Firewall: open port 25565 (TCP/Java) + 19132 (UDP/Bedrock)
 ========================================

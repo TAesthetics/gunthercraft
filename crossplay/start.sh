@@ -2,8 +2,8 @@
 # Gunthercraft Crossplay Server - Start Script
 # Paper 1.21.x | 8GB RAM | Aikar's Flags
 # =========================================
-# Anpassen: Dateiname von paper.jar ggf. auf die heruntergeladene JAR-Version ändern
-# z.B. paper-1.21.4-196.jar -> paper.jar (oder umbenennen)
+# Adjust the jar filename if needed:
+# e.g. rename paper-1.21.4-196.jar to paper.jar
 
 java \
   -Xms8G \

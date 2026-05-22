@@ -8,7 +8,7 @@ settings:
   connection-throttle: 4000
   query-plugins: false
   deprecated-verbose: default
-  shutdown-message: Server wird neu gestartet. Bitte warte kurz!
+  shutdown-message: Server is restarting. Please wait a moment!
   minimum-api: none
   use-map-color-cache: true
 

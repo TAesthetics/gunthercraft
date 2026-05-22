@@ -2,9 +2,8 @@
 :: Gunthercraft Modded Server - Start Script (Windows)
 :: NeoForge 1.20.1 | 16GB RAM
 :: ==========================================
-:: NeoForge generiert nach Installation automatisch run.bat.
-:: Wenn run.bat existiert -> Diese hier nicht benutzen, stattdessen run.bat nutzen.
-:: user_jvm_args.txt wird von run.bat automatisch eingelesen.
+:: NeoForge generates run.bat automatically after installation.
+:: If run.bat exists -> use that instead; it reads user_jvm_args.txt automatically.
 title Gunthercraft - Modded Server
 
 java ^

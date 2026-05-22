@@ -1,48 +1,48 @@
-# Gunthercraft - LuckPerms Gruppen-Setup
+# Gunthercraft - LuckPerms Group Setup
 # Download: https://luckperms.net/download
 # ==========================================
-# HINWEIS: LuckPerms speichert seine Daten in einer eigenen Datenbank.
-# Diese Datei ist eine Referenz für den initialen Setup via /lp-Befehle.
-# Die Befehle unten in der Minecraft-Konsole ausführen (ohne "#").
+# NOTE: LuckPerms stores its data in its own database.
+# This file is a reference for initial setup via /lp commands.
+# Run the commands below in the Minecraft console (without the leading "#").
 #
-# Gruppen-Hierarchie:
+# Group hierarchy:
 #   owner > admin > moderator > vip > member (default)
 
 # ==============================
-# SETUP-BEFEHLE FÜR DIE KONSOLE
+# CONSOLE SETUP COMMANDS
 # ==============================
 
-# --- Gruppen erstellen ---
+# --- Create groups ---
 # lp creategroup owner
 # lp creategroup admin
 # lp creategroup moderator
 # lp creategroup vip
 # lp creategroup member
 
-# --- Gruppen-Gewichte setzen (höher = Vorrang) ---
+# --- Set group weights (higher = higher priority) ---
 # lp group owner meta setweight 100
 # lp group admin meta setweight 80
 # lp group moderator meta setweight 60
 # lp group vip meta setweight 40
 # lp group member meta setweight 20
 
-# --- Gruppen-Prefixe (EssentialsX Chat) ---
+# --- Set group prefixes (EssentialsX Chat) ---
 # lp group owner meta setprefix 100 "§4[Owner] "
 # lp group admin meta setprefix 80 "§c[Admin] "
 # lp group moderator meta setprefix 60 "§e[Mod] "
 # lp group vip meta setprefix 40 "§b[VIP] "
 # lp group member meta setprefix 20 "§7[Member] "
 
-# --- Erbschaft (Inherits) ---
+# --- Group inheritance ---
 # lp group admin parent set member
 # lp group admin parent add moderator
 # lp group moderator parent set member
 # lp group vip parent set member
 
-# --- Default-Gruppe für alle Spieler ---
+# --- Set default group for all players ---
 # lp group default parent set member
 
-# --- Berechtigungen für member ---
+# --- Permissions for member ---
 # lp group member permission set essentials.home true
 # lp group member permission set essentials.sethome true
 # lp group member permission set essentials.tpa true
@@ -58,12 +58,12 @@
 # lp group member permission set essentials.afk true
 # lp group member permission set worldguard.region.claim true
 
-# --- Berechtigungen für vip ---
+# --- Permissions for vip ---
 # lp group vip permission set essentials.sethome.multiple.vip true
 # lp group vip permission set essentials.fly true
 # lp group vip permission set essentials.nick true
 
-# --- Berechtigungen für moderator ---
+# --- Permissions for moderator ---
 # lp group moderator permission set essentials.kick true
 # lp group moderator permission set essentials.mute true
 # lp group moderator permission set essentials.jail true
@@ -73,9 +73,9 @@
 # lp group moderator permission set coreprotect.restore true
 # lp group moderator permission set worldguard.region.* true
 
-# --- Berechtigungen für admin ---
+# --- Permissions for admin ---
 # lp group admin permission set * true
-# lp group admin permission set -bukkit.command.op false  # Op-Befehl sperren
+# lp group admin permission set -bukkit.command.op false  # block /op command
 
-# --- Spieler zu Gruppe hinzufügen ---
-# lp user SPIELERNAME parent set admin
+# --- Add a player to a group ---
+# lp user PLAYERNAME parent set admin
