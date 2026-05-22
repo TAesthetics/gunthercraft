@@ -1,0 +1,102 @@
+# Gunthercraft - Geyser-Spigot config.yml
+# Ermöglicht Bedrock-Spielern den Beitritt zum Java-Server
+# =========================================================
+# Download: https://geysermc.org/download
+
+bedrock:
+  # IP auf der Geyser auf Bedrock-Verbindungen hört
+  address: 0.0.0.0
+  # Port für Bedrock-Spieler (UDP). Firewall-Regel nicht vergessen!
+  port: 19132
+  broadcast-port: 19132
+  # true = Bedrock-Port entspricht automatisch dem Java-Port (für Hoster die Ports dynamisieren)
+  clone-remote-port: false
+  # MOTD im Bedrock-Servermenü
+  motd1: "Gunthercraft"
+  motd2: "Java + Bedrock Crossplay"
+  server-name: "Gunthercraft"
+  compression-level: 6
+  enable-proxy-protocol: false
+
+remote:
+  # "auto" = Geyser verbindet sich mit dem lokalen Paper-Server (empfohlen als Plugin)
+  address: auto
+  port: 25565
+  # "floodgate" = Bedrock-Accounts ohne Java-Account. Floodgate muss installiert sein!
+  auth-type: floodgate
+  use-proxy-protocol: false
+  forward-hostname: false
+
+# Pfad zur Floodgate key.pem (liegt im Floodgate-Plugin-Ordner)
+floodgate-key-file: key.pem
+
+# Passthrough: MOTD, Spielerzahl etc. vom Java-Server übernehmen
+passthrough-motd: true
+passthrough-protocol-name: true
+passthrough-player-counts: true
+legacy-ping-passthrough: false
+ping-passthrough-interval: 3
+
+forward-player-ping: false
+
+# Maximale angezeigte Spielerzahl in der Bedrock-Serverliste (-1 = Java-Wert)
+max-players: 100
+
+debug-mode: false
+
+# Thread-Pool-Größe für Geyser (anpassen je nach CPU-Kerne)
+general-thread-pool: 32
+
+# OptiFine-Capes, LabyMod-Capes etc. für Bedrock-Spieler anzeigen
+allow-third-party-capes: true
+allow-third-party-ears: false
+
+# Fake-Cooldown-Animation für Bedrock-Spieler (kein nativer Attack-Cooldown in Bedrock)
+show-cooldown: title
+
+# Koordinaten im HUD anzeigen
+show-coordinates: true
+
+disable-bedrock-scaffolding: false
+
+emote-offhand-workaround: disabled
+
+default-locale: de_de
+
+# Cache-Dauer für heruntergeladene Bilder (Skins etc.) in Tagen
+cache-images: 7
+
+# Custom Skulls (Spielerköpfe) anzeigen
+allow-custom-skulls: true
+max-visible-custom-skulls: 128
+custom-skull-render-distance: 32
+
+# Nether über Y127 bauen ermöglichen (Bedrock-Limitation umgehen)
+above-bedrock-nether-building: false
+
+# Resource Pack erzwingen
+force-resource-packs: false
+
+xbox-achievements-enabled: false
+
+log-player-ip-addresses: true
+
+notify-on-new-bedrock-update: true
+
+unusable-space-block: minecraft:barrier
+
+metrics:
+  enabled: true
+  uuid: generateduuid
+
+scoreboard-packet-threshold: 20
+
+enable-proxy-connections: false
+
+# MTU für Bedrock-Pakete (Standard: 1400)
+mtu: 1400
+
+use-direct-connection: true
+
+# Kompression deaktivieren wenn Bedrock-Spieler schnelle Verbindungen haben
+disable-compression: true

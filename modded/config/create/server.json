@@ -1,0 +1,31 @@
+{
+  "_comment": "Gunthercraft - Create Mod Server Config",
+  "_note": "Create generiert diese Datei automatisch. Hier sind empfohlene Werte für Community-Server.",
+
+  "performance": {
+    "maxRenderDistance": 64,
+    "simulateElevators": true,
+    "trainSimulationDistance": 48
+  },
+
+  "kinetics": {
+    "maxBlocksMoved": 128,
+    "maxBeltLength": 20
+  },
+
+  "logistics": {
+    "maximumStackSize": 8,
+    "maxFilterSlots": 5
+  },
+
+  "trains": {
+    "displayLinkRange": 512,
+    "defaultDismountLocation": "SAME_BLOCK",
+    "crossWorldTrainTravel": false
+  },
+
+  "server": {
+    "preferStress": true,
+    "flywheelEnabled": false
+  }
+}

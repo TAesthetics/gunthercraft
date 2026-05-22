@@ -1,0 +1,42 @@
+# Gunthercraft - NeoForge JVM-Argumente (16 GB RAM)
+# Diese Datei wird von NeoForge's run.sh/run.bat automatisch eingelesen.
+# ========================================================================
+# Aikar's Flags + G1GC optimiert für Modded-Server mit vielen Mods
+
+# Heap-Größe: 16 GB für Modded mit 30+ Mods und 50-60 Spieler
+-Xms16G
+-Xmx16G
+
+# GC-Algorithmus: G1GC (optimal für große Heaps und Minecraft)
+-XX:+UseG1GC
+-XX:+ParallelRefProcEnabled
+-XX:MaxGCPauseMillis=200
+-XX:+UnlockExperimentalVMOptions
+-XX:+DisableExplicitGC
+-XX:+AlwaysPreTouch
+-XX:G1NewSizePercent=30
+-XX:G1MaxNewSizePercent=40
+
+# Größere G1HeapRegionSize für 16 GB Heap
+-XX:G1HeapRegionSize=16M
+
+-XX:G1ReservePercent=20
+-XX:G1HeapWastePercent=5
+-XX:G1MixedGCCountTarget=4
+-XX:InitiatingHeapOccupancyPercent=15
+-XX:G1MixedGCLiveThresholdPercent=90
+-XX:G1RSetUpdatingPauseTimePercent=5
+-XX:SurvivorRatio=32
+-XX:+PerfDisableSharedMem
+-XX:MaxTenuringThreshold=1
+
+# Modded: Mehr Metaspace für alle geladenen Mod-Klassen
+-XX:MetaspaceSize=512M
+-XX:MaxMetaspaceSize=512M
+
+# NeoForge identifier
+-Dusing.aikars.flags=https://mcflags.emc.gs
+-Daikars.new.flags=true
+
+# Logging-Optimierungen für Modded
+-Dio.netty.allocator.pageSize=8192
