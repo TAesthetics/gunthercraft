@@ -1,0 +1,44 @@
+{
+	# Gunthercraft - FTB Chunks Server Config
+	# Chunk claims for territory protection
+	# =====================================
+
+	# Maximum chunks a player can claim
+	# Recommended: 100-250 per player for Earth Map
+	max_claimed_chunks: 150
+
+	# Maximum force-loaded chunks per player
+	# Force-loading keeps chunks loaded without a player nearby (expensive!)
+	max_force_loaded_chunks: 8
+
+	# Only team owners can claim chunks
+	# false = all team members can claim
+	only_owners_can_chunk_claim: false
+
+	# Unload force-loaded chunks when player is offline
+	# false = chunks stay loaded even when player is offline
+	# true = chunks unload when no player is online
+	# RECOMMENDED: true for performance
+	force_load_chunks_sleeping: true
+
+	# Prevent explosions in claimed chunks (creepers, TNT, etc.)
+	# IMPORTANT for warfare server - players can attack with cannons etc.
+	# false = warfare between teams is allowed
+	# true = claimed areas are indestructible (protects builds)
+	disable_explosion_damage: false
+
+	# PvP in claimed chunks
+	# false = PvP allowed everywhere (warfare!)
+	disable_pvp_in_claimed_chunks: false
+
+	# Outsiders cannot place/break blocks in claimed chunks
+	# true = griefing protection active (recommended)
+	allow_fake_players_to_grief_claimed_chunks: false
+	allow_unknown_entity_to_grief_claimed_chunks: false
+	allow_monsters_to_grief_claimed_chunks: false
+	allow_mob_griefing_in_claimed_chunks: false
+
+	# Chunk border display mode when crossing into a claimed area
+	# HIGHLIGHT = chunks briefly glow when crossed
+	chunk_border_party_mode: "HIGHLIGHT"
+}

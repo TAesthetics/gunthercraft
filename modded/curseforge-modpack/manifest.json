@@ -1,0 +1,48 @@
+{
+  "minecraft": {
+    "version": "1.20.1",
+    "modLoaders": [
+      {
+        "id": "neoforge-47.1.106",
+        "primary": true
+      }
+    ]
+  },
+  "manifestType": "minecraftModpack",
+  "manifestVersion": 1,
+  "name": "Gunthercraft",
+  "version": "1.0.0",
+  "author": "Gunthercraft",
+  "overrides": "overrides",
+  "files": [
+    { "projectID": 351264, "fileID": 0, "required": true },
+    { "projectID": 419699, "fileID": 0, "required": true },
+    { "projectID": 547270, "fileID": 0, "required": true },
+    { "projectID": 811925, "fileID": 0, "required": true },
+    { "projectID": 519791, "fileID": 0, "required": true },
+    { "projectID": 250419, "fileID": 0, "required": true },
+    { "projectID": 328085, "fileID": 0, "required": true },
+    { "projectID": 688231, "fileID": 0, "required": true },
+    { "projectID": 437717, "fileID": 0, "required": true },
+    { "projectID": 291584, "fileID": 0, "required": true },
+    { "projectID": 829858, "fileID": 0, "required": true },
+    { "projectID": 618786, "fileID": 0, "required": true },
+    { "projectID": 228525, "fileID": 0, "required": true },
+    { "projectID": 416089, "fileID": 0, "required": true },
+    { "projectID": 412082, "fileID": 0, "required": true },
+    { "projectID": 424371, "fileID": 0, "required": true },
+    { "projectID": 667828, "fileID": 0, "required": true },
+    { "projectID": 687943, "fileID": 0, "required": true },
+    { "projectID": 667858, "fileID": 0, "required": true },
+    { "projectID": 238222, "fileID": 0, "required": true },
+    { "projectID": 32274,  "fileID": 0, "required": true },
+    { "projectID": 263420, "fileID": 0, "required": true },
+    { "projectID": 317780, "fileID": 0, "required": true },
+    { "projectID": 908741, "fileID": 0, "required": true },
+    { "projectID": 581495, "fileID": 0, "required": true },
+    { "projectID": 535342, "fileID": 0, "required": true },
+    { "projectID": 257814, "fileID": 0, "required": true },
+    { "projectID": 790626, "fileID": 0, "required": true },
+    { "projectID": 566374, "fileID": 0, "required": false }
+  ]
+}

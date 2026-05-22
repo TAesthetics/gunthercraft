@@ -1,0 +1,27 @@
+{
+	# Gunthercraft - FTB Teams Server Config
+	# Team system for chunk claims and protection
+	# =====================================
+
+	# Maximum number of teams a player can own
+	max_teams_per_player: 1
+
+	# Maximum members per team
+	max_members_per_team: 50
+
+	# Cooldown before a player can create a new team (in ticks, 0 = no cooldown)
+	# 72000 = 1 hour
+	create_team_cooldown: 0
+
+	# Teams are closed by default (invitation required to join)
+	default_open: false
+
+	# Allow RP names and display names for teams
+	allow_team_display_name: true
+
+	# Show team color in player names in the tab list
+	color_name_in_tab: true
+
+	# Default color for new teams
+	default_team_color: "#AAAAAA"
+}
