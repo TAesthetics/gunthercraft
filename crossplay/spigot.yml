@@ -24,12 +24,12 @@ settings:
   debug: false
 
 messages:
-  whitelist: Du bist nicht auf der Whitelist!
-  unknown-command: Unbekannter Befehl. Nutze /help für Hilfe.
-  server-full: Der Server ist voll!
-  outdated-client: 'Dein Client ist veraltet. Bitte nutze {0}!'
-  outdated-server: 'Der Server ist veraltet. Ich nutze {0}!'
-  restart: Server wird neu gestartet, bitte warte!
+  whitelist: You are not whitelisted on this server!
+  unknown-command: Unknown command. Use /help for a list of commands.
+  server-full: The server is full!
+  outdated-client: 'Your client is outdated. Please use {0}!'
+  outdated-server: 'The server is outdated. I am running {0}!'
+  restart: Server is restarting, please wait!
 
 commands:
   spam-exclusions:

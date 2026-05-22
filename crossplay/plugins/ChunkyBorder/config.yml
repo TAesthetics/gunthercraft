@@ -1,46 +1,43 @@
 # Gunthercraft - ChunkyBorder config.yml
-# Weltgrenzen + Chunk-Vorwärmung
+# World borders + chunk pre-generation
 # Download: https://www.spigotmc.org/resources/chunkyborder.80461/
 # ================================================================
-# HINWEIS: ChunkyBorder setzt automatisch Vanilla-Weltgrenzen.
-# Chunky (das Hauptplugin) vorher installieren für Chunk-Pregeneration!
+# NOTE: ChunkyBorder sets vanilla world borders automatically.
+# Install Chunky (the main plugin) first for chunk pre-generation!
 
-# Weltgrenzen für die Crossplay-Server-Welten
-# Earth-Map hat eigene Dimensionen - entsprechend anpassen!
+# World borders are set via commands, not this config file.
+# The config is filled in automatically.
 
-# Grenzen werden per Befehl gesetzt, nicht über diese Config-Datei.
-# Die Config wird automatisch befüllt.
-
-# === SETUP-BEFEHLE ===
+# === SETUP COMMANDS ===
 #
-# Hauptwelt (Earth-Map) - 10000 Block Radius (anpassen!)
+# Main world (Earth Map) - 10000 block radius (adjust as needed)
 # /chunky world world
 # /chunky center 0 0
 # /chunky radius 10000
 # /chunky start
 # /chunkyborder add world
 #
-# Nether - proportional zur Hauptwelt (1/8 des Overworld-Radius)
+# Nether - proportional to the main world (1/8 of overworld radius)
 # /chunky world world_nether
 # /chunky center 0 0
 # /chunky radius 1250
 # /chunky start
 # /chunkyborder add world_nether
 #
-# End - kleinere Grenze
+# End - smaller border
 # /chunky world world_the_end
 # /chunky center 0 0
 # /chunky radius 5000
 # /chunky start
 # /chunkyborder add world_the_end
 #
-# Pregenerierung starten (wichtig vor Server-Launch!):
+# Start pre-generation (important before launch!):
 # /chunky world world && /chunky start
-# Status prüfen: /chunky status
-# Fortschritt: /chunky progress
+# Check status: /chunky status
+# Check progress: /chunky progress
 
-# === EARTH-MAP HINWEIS ===
-# Beim Einsatz einer Earth-Map (z.B. via Terra oder Custom-Import):
-# Die World-Bordergrenzen auf die tatsächliche Kartengröße anpassen.
-# Earth-Map 1:1000 hat ca. ±18850 Blöcke in X und ±9500 in Z.
-# /worldborder set 40000  (für Diameter, nicht Radius)
+# === EARTH MAP NOTE ===
+# When using an Earth Map (e.g. via Terra or custom import):
+# Adjust world border limits to match the actual map dimensions.
+# Earth Map 1:1000 is approximately ±18850 blocks on X and ±9500 on Z.
+# /worldborder set 40000  (diameter, not radius)

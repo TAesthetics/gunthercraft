@@ -1,74 +1,73 @@
 # Gunthercraft - DiscordSRV config.yml
-# Verbindet Minecraft-Chat mit Discord
+# Links Minecraft chat to Discord
 # Download: https://www.spigotmc.org/resources/discordsrv.18494/
 # ==================================================================
-# WICHTIG: BotToken muss ausgefüllt werden!
-# Bot erstellen: https://discord.com/developers/applications
-# Bot-Permissions: Send Messages, Read Message History, Manage Roles, Embed Links
+# IMPORTANT: Fill in BotToken below!
+# Create a bot: https://discord.com/developers/applications
+# Required bot permissions: Send Messages, Read Message History, Manage Roles, Embed Links
 
-# Bot-Token vom Discord Developer Portal
-# Niemals öffentlich teilen!
-BotToken: "HIER_BOT_TOKEN_EINFUEGEN"
+# Bot token from the Discord Developer Portal
+# Never share this publicly!
+BotToken: "INSERT_BOT_TOKEN_HERE"
 
-# Channel-Mapping: Minecraft-Kanal -> Discord-Channel-ID
+# Channel mapping: Minecraft channel name -> Discord channel ID
 Channels:
-  global: "DISCORD_CHANNEL_ID_FUER_CHAT"
+  global: "DISCORD_CHANNEL_ID_FOR_CHAT"
 
-# Weitere Kanäle (auskommentiert, bei Bedarf aktivieren)
+# Additional channels (uncomment to enable)
 # ConsoleChannel: "CONSOLE_CHANNEL_ID"
 
-# Willkommen / Abschied-Nachrichten auch auf Discord posten
+# Filter for console channel output
 DiscordConsoleChannelFilters:
   - ".*\\[Async Chat Thread.*"
 
-# In-Game-Nachrichten auf Discord weiterleiten
+# Forward in-game messages to Discord and vice versa
 DiscordChatChannelMinecraftToDiscord: true
 DiscordChatChannelDiscordToMinecraft: true
 
-# Minecraft -> Discord Format
+# Minecraft -> Discord format
 MinecraftChatToDiscordMessageFormat: "**%username%**: %message%"
 MinecraftChatToDiscordMessageFormatNoPrimaryGroup: "**%username%**: %message%"
 
-# Discord -> Minecraft Format
+# Discord -> Minecraft format
 DiscordToMinecraftMessageFormat: "§9[Discord] §b%username%§r: %message%"
 DiscordToMinecraftMessageFormatNoPrimaryGroup: "§9[Discord] §b%username%§r: %message%"
 
-# Spieler-Join/Leave auf Discord
-DiscordChatChannelServerStartMessage: "Server **GESTARTET**"
-DiscordChatChannelServerStopMessage: "Server **GESTOPPT**"
+# Server start/stop messages posted to Discord
+DiscordChatChannelServerStartMessage: "Server **STARTED**"
+DiscordChatChannelServerStopMessage: "Server **STOPPED**"
 
-# Join-Nachrichten
+# Join / leave / death messages
 DiscordJoinMessages: true
-JoinMessage: "**%username%** ist dem Server beigetreten."
-LeaveMessage: "**%username%** hat den Server verlassen."
-DeathMessage: "**%username%** ist gestorben: %deathmessage%"
+JoinMessage: "**%username%** joined the server."
+LeaveMessage: "**%username%** left the server."
+DeathMessage: "**%username%** died: %deathmessage%"
 
-# Spielerliste in Discord anzeigen
+# Show player list in Discord
 UpdateChannelName: false
 DiscordChatChannelListPlayers: true
 
-# Minecraft-Befehle aus Discord ausführen (Admin-Funktion)
+# Execute Minecraft commands from Discord (admin feature)
 DiscordConsoleChannelEnabled: false
 # ConsoleChannel: "ADMIN_CHANNEL_ID"
 DiscordConsoleChannelWhitelist: []
 DiscordConsoleChannelBlacklist: ["stop", "ban-ip"]
 
-# Embeds verwenden statt Plain-Text
+# Use Discord embeds instead of plain text
 DiscordChatChannelUseDiscordEmbeds: false
 
-# Mention-Schutz (verhindert @everyone/@here aus Minecraft)
+# Mention protection (prevents @everyone/@here from in-game chat)
 DiscordChatChannelTranslateMentions: true
 DiscordChatChannelAllowedMentions:
   - USER
 
-# Rollensynchronisation (LuckPerms-Gruppen <-> Discord-Rollen)
+# Role synchronization (LuckPerms groups <-> Discord roles)
 SynchronizePermissionsOnLogin: false
 # GroupSynchronizationPrimaryGroupEnabled: false
 
-# Webhook-Unterstützung (bessere Darstellung mit Spieler-Avatars)
-# Webhook URL im Discord-Kanal unter Einstellungen > Integrationen erstellen
+# Webhook support (shows player avatars in Discord)
+# Create webhook URL in Discord channel settings > Integrations
 DiscordChatChannelWebhookEnabled: false
 # DiscordChatChannelWebhookUrl: "WEBHOOK_URL"
 
-# Sprache
 DebugJDA: false

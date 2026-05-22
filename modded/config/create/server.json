@@ -1,6 +1,6 @@
 {
   "_comment": "Gunthercraft - Create Mod Server Config",
-  "_note": "Create generiert diese Datei automatisch. Hier sind empfohlene Werte für Community-Server.",
+  "_note": "Create generates this file automatically. Values below are recommended for community servers.",
 
   "performance": {
     "maxRenderDistance": 64,

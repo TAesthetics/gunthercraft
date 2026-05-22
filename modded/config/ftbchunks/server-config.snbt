@@ -1,44 +1,44 @@
 {
 	# Gunthercraft - FTB Chunks Server Config
-	# Chunk-Claims für Gebietsschutz
+	# Chunk claims for territory protection
 	# =====================================
 
-	# Maximale Chunks die ein Spieler beanspruchen kann
-	# Empfehlung: 100-250 pro Spieler für Earth-Map
+	# Maximum chunks a player can claim
+	# Recommended: 100-250 per player for Earth Map
 	max_claimed_chunks: 150
 
-	# Maximale geladene Chunks (Chunk-Loading) pro Spieler
-	# Chunk-Loading hält Chunks auch ohne Spieler geladen (teuer!)
+	# Maximum force-loaded chunks per player
+	# Force-loading keeps chunks loaded without a player nearby (expensive!)
 	max_force_loaded_chunks: 8
 
-	# Nur Team-Besitzer dürfen Chunks claimen
-	# false = alle Team-Mitglieder können claimen
+	# Only team owners can claim chunks
+	# false = all team members can claim
 	only_owners_can_chunk_claim: false
 
-	# Chunk-Loader im Schlafmodus (wenn Spieler offline)
-	# false = Chunks bleiben auch offline geladen
-	# true = Chunks entladen wenn kein Spieler online
-	# EMPFEHLUNG: true für Performance
+	# Unload force-loaded chunks when player is offline
+	# false = chunks stay loaded even when player is offline
+	# true = chunks unload when no player is online
+	# RECOMMENDED: true for performance
 	force_load_chunks_sleeping: true
 
-	# Explosionen in geclaimten Chunks verhindern (Creeper, TNT etc.)
-	# WICHTIG für Warfare-Server - spieler können mit Kanonen etc. angreifen
-	# false = Warfare zwischen Teams erlaubt
-	# true = Gebiete unzerstörbar (Schutz für Builds)
+	# Prevent explosions in claimed chunks (creepers, TNT, etc.)
+	# IMPORTANT for warfare server - players can attack with cannons etc.
+	# false = warfare between teams is allowed
+	# true = claimed areas are indestructible (protects builds)
 	disable_explosion_damage: false
 
-	# PvP in geclaimten Chunks
-	# false = PvP überall erlaubt (Warfare!)
+	# PvP in claimed chunks
+	# false = PvP allowed everywhere (warfare!)
 	disable_pvp_in_claimed_chunks: false
 
-	# Fremde Spieler können keine Blöcke in geclaimten Chunks platzieren/abbauen
-	# true = Griefer-Schutz aktiv (empfohlen)
+	# Outsiders cannot place/break blocks in claimed chunks
+	# true = griefing protection active (recommended)
 	allow_fake_players_to_grief_claimed_chunks: false
 	allow_unknown_entity_to_grief_claimed_chunks: false
 	allow_monsters_to_grief_claimed_chunks: false
 	allow_mob_griefing_in_claimed_chunks: false
 
-	# Anzeigemodus für Chunk-Grenzen
-	# HIGHLIGHT = Chunks leuchten kurz auf beim Überqueren
+	# Chunk border display mode when crossing into a claimed area
+	# HIGHLIGHT = chunks briefly glow when crossed
 	chunk_border_party_mode: "HIGHLIGHT"
 }

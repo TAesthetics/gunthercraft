@@ -1,37 +1,37 @@
 # Gunthercraft - CoreProtect config.yml
-# Anti-Grief: Block-Logging und Rollback
+# Anti-grief: block logging and rollback
 # Download: https://www.spigotmc.org/resources/coreprotect.8631/
 # ===============================================================
 
 use-mysql: false
-# Für MySQL (empfohlen auf Produktiv-Servern):
+# For MySQL (recommended on production servers):
 # use-mysql: true
 # mysql-host: 127.0.0.1
 # mysql-port: 3306
 # mysql-database: coreprotect
 # mysql-username: root
-# mysql-password: PASSWORT
+# mysql-password: PASSWORD
 # mysql-prefix: co_
 
-# Wie viele Tage Logs aufbewahrt werden (0 = für immer)
+# How many days to keep logs (0 = keep forever)
 database-purge-days: 60
 
-# Logging-Kategorien
-# Alle auf true für maximalen Schutz
+# Logging categories
+# Set all to true for maximum protection
 block-logging: true
-container-logging: true   # Kisten, Öfen etc.
+container-logging: true   # chests, furnaces, etc.
 player-logging: true
-chat-logging: false        # Chat-Logging optional
+chat-logging: false        # chat logging is optional
 command-logging: false
-worldedit-logging: true   # WorldEdit-Aktionen loggen!
+worldedit-logging: true   # log WorldEdit actions!
 environment-logging: true
 lava-logging: true
-water-logging: false      # Wasser-Logging kann DB fluten - optional
+water-logging: false      # water logging can flood the DB - optional
 # tree-logging: true
 
-# Inspection-Wand: /co inspect (Standard: Holzaxt)
+# Inspection tool: /co inspect (default: wooden axe)
 default-radius: 10
 max-radius: 100
 
-# Rollback-Schutz: Griefer-Rollback in Radius
-# /co rollback u:SPIELER t:1h r:50
+# Rollback griefed areas by player within a radius:
+# /co rollback u:PLAYERNAME t:1h r:50

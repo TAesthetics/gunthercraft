@@ -1,133 +1,133 @@
-# Gunthercraft Modpack - Server-Mods Liste
+# Gunthercraft Modpack - Server Mods List
 # NeoForge 1.20.1
 # ==========================================
-# NUR Server-kompatible Mods hier.
-# Client-Only-Mods (Rubidium, Oculus, JourneyMap-Client) NICHT auf dem Server installieren!
+# SERVER-SIDE ONLY. Do NOT install client-only mods on the server!
+# Client-only mods: Rubidium, Oculus, JourneyMap client, Xaero's maps
 
-## PFLICHT - Loader & Dependencies
+## REQUIRED - Loader & Dependencies
 
-| Mod | Download | Hinweis |
-|-----|----------|---------|
-| NeoForge 1.20.1 | https://neoforged.net/ | Server-Installer herunterladen |
-| Kotlin for Forge | https://www.curseforge.com/minecraft/mc-mods/kotlin-for-forge | Dependency für viele Mods |
+| Mod | Download | Notes |
+|-----|----------|-------|
+| NeoForge 1.20.1 | https://neoforged.net/ | Download server installer |
+| Kotlin for Forge | https://www.curseforge.com/minecraft/mc-mods/kotlin-for-forge | Dependency for many mods |
 | Architectury API | https://www.curseforge.com/minecraft/mc-mods/architectury-api | Dependency |
 | Forge Config API Port | https://www.curseforge.com/minecraft/mc-mods/forge-config-api-port | Dependency |
 
 ---
 
-## KRIEGSFÜHRUNG & MILITÄR
-*(Requested: Cataclysm, CyberEnigma0, Smocka Republika, Jame Key Lie)*
+## WARFARE & MILITARY
+*(Requested by: Cataclysm, CyberEnigma0, Smocka Republika, Jame Key Lie)*
 
-| Mod | Download | Server-seitig? |
-|-----|----------|----------------|
-| Timeless & Classics Zero (TCZ) | https://www.curseforge.com/minecraft/mc-mods/timeless-and-classics-zero | JA - Pflicht |
-| Superb Warfare | https://www.curseforge.com/minecraft/mc-mods/superb-warfare | JA - Pflicht |
-| Create Big Cannons (CBC) | https://www.curseforge.com/minecraft/mc-mods/create-big-cannons | JA - Pflicht |
-| Immersive Vehicles | https://www.curseforge.com/minecraft/mc-mods/mrcrayfish-vehicle-mod | JA - Pflicht |
-
----
-
-## CREATE & TECHNIK
-*(Requested: earlynyancat)*
-
-| Mod | Download | Server-seitig? |
-|-----|----------|----------------|
-| Create (NeoForge) | https://www.curseforge.com/minecraft/mc-mods/create | JA - Pflicht |
-| Create: Steam 'n' Rails | https://www.curseforge.com/minecraft/mc-mods/create-steam-n-rails | JA - Pflicht |
-| Create Crafts & Additions | https://www.curseforge.com/minecraft/mc-mods/createaddition | JA - Pflicht |
-
-**Create Dependencies (automatisch installiert via CurseForge App, manuell herunterladen):**
-- Flywheel (Create-Rendering-Lib)
+| Mod | Download | Server-side? |
+|-----|----------|--------------|
+| Timeless & Classics Zero (TCZ) | https://www.curseforge.com/minecraft/mc-mods/timeless-and-classics-zero | YES - Required |
+| Superb Warfare | https://www.curseforge.com/minecraft/mc-mods/superb-warfare | YES - Required |
+| Create Big Cannons (CBC) | https://www.curseforge.com/minecraft/mc-mods/create-big-cannons | YES - Required |
+| Immersive Vehicles | https://www.curseforge.com/minecraft/mc-mods/mrcrayfish-vehicle-mod | YES - Required |
 
 ---
 
-## WELT & KARTEN
-*(Requested: david)*
+## CREATE & TECH
+*(Requested by: earlynyancat)*
 
-| Mod | Download | Server-seitig? |
-|-----|----------|----------------|
-| Terra (Earth Map Generator) | https://www.curseforge.com/minecraft/mc-mods/terra | JA - Worldgen |
-| Xaero's Minimap | https://www.curseforge.com/minecraft/mc-mods/xaeros-minimap | Client-only (kein Server-install nötig) |
+| Mod | Download | Server-side? |
+|-----|----------|--------------|
+| Create (NeoForge) | https://www.curseforge.com/minecraft/mc-mods/create | YES - Required |
+| Create: Steam 'n' Rails | https://www.curseforge.com/minecraft/mc-mods/create-steam-n-rails | YES - Required |
+| Create Crafts & Additions | https://www.curseforge.com/minecraft/mc-mods/createaddition | YES - Required |
+
+**Create dependencies (auto-installed via CurseForge App, download manually otherwise):**
+- Flywheel (Create rendering lib)
+
+---
+
+## WORLD & MAPS
+*(Requested by: david)*
+
+| Mod | Download | Server-side? |
+|-----|----------|--------------|
+| Terra (Earth Map Generator) | https://www.curseforge.com/minecraft/mc-mods/terra | YES - worldgen |
+| Xaero's Minimap | https://www.curseforge.com/minecraft/mc-mods/xaeros-minimap | Client-only (no server install needed) |
 | Xaero's World Map | https://www.curseforge.com/minecraft/mc-mods/xaeros-world-map | Client-only |
 
-**Terra-Setup:**
-Nach Installation Terra-Config auf Earth-Map einstellen:
-`config/terra/packs/` -> EarthMC-Pack oder custom Terra-Pack platzieren.
+**Terra setup:**
+After installation, place the Earth Map pack in `config/terra/packs/`
+Use the EarthMC pack or a custom Terra pack.
 
 ---
 
-## HORROR & ATMOSPHÄRE
-*(Requested: Jame Key Lie)*
+## HORROR & ATMOSPHERE
+*(Requested by: Jame Key Lie)*
 
-| Mod | Download | Server-seitig? |
-|-----|----------|----------------|
-| The Midnight | https://www.curseforge.com/minecraft/mc-mods/the-midnight | JA - Pflicht |
-| Cave Dweller Reimagined | https://www.curseforge.com/minecraft/mc-mods/cave-dweller-reimagined | JA - Pflicht |
-| From The Fog (Herobrine) | https://www.curseforge.com/minecraft/mc-mods/from-the-fog | JA - Pflicht |
+| Mod | Download | Server-side? |
+|-----|----------|--------------|
+| The Midnight | https://www.curseforge.com/minecraft/mc-mods/the-midnight | YES - Required |
+| Cave Dweller Reimagined | https://www.curseforge.com/minecraft/mc-mods/cave-dweller-reimagined | YES - Required |
+| From The Fog (Herobrine) | https://www.curseforge.com/minecraft/mc-mods/from-the-fog | YES - Required |
 
 ---
 
 ## CYBERPUNK & ROLEPLAY
-*(Requested: CyberEnigma0)*
+*(Requested by: CyberEnigma0)*
 
-| Mod | Download | Server-seitig? |
-|-----|----------|----------------|
-| MrCrayfish's Furniture Mod | https://www.curseforge.com/minecraft/mc-mods/mrcrayfish-furniture-mod | JA - Pflicht |
-| Simple Voice Chat | https://www.curseforge.com/minecraft/mc-mods/simple-voice-chat | JA - Pflicht (Server + Client!) |
-| Supplementaries | https://www.curseforge.com/minecraft/mc-mods/supplementaries | JA - Pflicht |
+| Mod | Download | Server-side? |
+|-----|----------|--------------|
+| MrCrayfish's Furniture Mod | https://www.curseforge.com/minecraft/mc-mods/mrcrayfish-furniture-mod | YES - Required |
+| Simple Voice Chat | https://www.curseforge.com/minecraft/mc-mods/simple-voice-chat | YES - Required (server + client!) |
+| Supplementaries | https://www.curseforge.com/minecraft/mc-mods/supplementaries | YES - Required |
 
-**Simple Voice Chat Port:**
-Port 24454 (UDP) in der Firewall öffnen!
+**Simple Voice Chat port:**
+Open port 24454 (UDP) in your firewall!
 Config: `config/voicechat/voicechat-server.properties`
 
 ---
 
-## SONSTIGE COMMUNITY-REQUESTS
+## OTHER COMMUNITY REQUESTS
 
-| Mod | Download | Server-seitig? |
-|-----|----------|----------------|
-| Spore Mod (Cataclysm) | Nicht verfügbar für NeoForge 1.20.1, Alternativ: Alex's Mobs https://www.curseforge.com/minecraft/mc-mods/alexs-mobs | JA |
+| Mod | Download | Server-side? |
+|-----|----------|--------------|
+| Spore Mod (Cataclysm) | Not available for NeoForge 1.20.1 — Alternative: Alex's Mobs https://www.curseforge.com/minecraft/mc-mods/alexs-mobs | YES |
 
 ---
 
 ## PERFORMANCE (SERVER-SIDE)
 
-| Mod | Download | Hinweis |
-|-----|----------|---------|
-| FerriteCore | https://www.curseforge.com/minecraft/mc-mods/ferritecore | RAM-Optimierung |
-| Clumps | https://www.curseforge.com/minecraft/mc-mods/clumps | XP-Orb-Merge |
+| Mod | Download | Notes |
+|-----|----------|-------|
+| FerriteCore | https://www.curseforge.com/minecraft/mc-mods/ferritecore | RAM optimization |
+| Clumps | https://www.curseforge.com/minecraft/mc-mods/clumps | XP orb merging |
 | ModernFix | https://www.curseforge.com/minecraft/mc-mods/modernfix | Startup & RAM |
-| Radium (Server-Sodium-Port) | https://www.curseforge.com/minecraft/mc-mods/radium-reforged | Server-Performance |
+| Radium (server Sodium port) | https://www.curseforge.com/minecraft/mc-mods/radium-reforged | Server performance |
 
 ---
 
-## SCHUTZ & TEAMS
+## PROTECTION & TEAMS
 
-| Mod | Download | Server-seitig? |
-|-----|----------|----------------|
-| FTB Teams | https://www.curseforge.com/minecraft/mc-mods/ftb-teams | JA - Pflicht |
-| FTB Chunks | https://www.curseforge.com/minecraft/mc-mods/ftb-chunks | JA - Pflicht |
-| FTB Library | https://www.curseforge.com/minecraft/mc-mods/ftb-library | JA - Dependency für FTB |
+| Mod | Download | Server-side? |
+|-----|----------|--------------|
+| FTB Teams | https://www.curseforge.com/minecraft/mc-mods/ftb-teams | YES - Required |
+| FTB Chunks | https://www.curseforge.com/minecraft/mc-mods/ftb-chunks | YES - Required |
+| FTB Library | https://www.curseforge.com/minecraft/mc-mods/ftb-library | YES - Dependency for FTB |
 
 ---
 
 ## ESSENTIALS (SERVER-SIDE)
 
-| Mod | Download | Hinweis |
-|-----|----------|---------|
-| JEI (Just Enough Items) | https://www.curseforge.com/minecraft/mc-mods/jei | Läuft auch Server-side für Rezepte |
+| Mod | Download | Notes |
+|-----|----------|-------|
+| JEI (Just Enough Items) | https://www.curseforge.com/minecraft/mc-mods/jei | Also works server-side for recipes |
 | Crafting Tweaks | https://www.curseforge.com/minecraft/mc-mods/crafting-tweaks | Optional |
 
 ---
 
-## CLIENT-ONLY (NICHT AUF SERVER INSTALLIEREN!)
+## CLIENT-ONLY (DO NOT INSTALL ON SERVER!)
 
-Diese Mods nur im Client-Modpack, nicht im Server:
-- Rubidium / Embeddium (Renderer)
-- Oculus (Shader)
-- JourneyMap (Client-Map)
+These mods go in the client modpack only, not on the server:
+- Rubidium / Embeddium (renderer)
+- Oculus (shaders)
+- JourneyMap (client map)
 - Xaero's Minimap / World Map
-- Iris (falls Modrinth statt CurseForge)
+- Iris (if using Modrinth instead of CurseForge)
 - Entity Culling
 
 ---
@@ -135,18 +135,18 @@ Diese Mods nur im Client-Modpack, nicht im Server:
 ## INSTALLATION
 
 ```bash
-# 1. NeoForge 1.20.1 Server installieren:
+# 1. Install NeoForge 1.20.1 server:
 java -jar neoforge-1.20.1-installer.jar --installServer
 
-# 2. eula.txt: eula=true setzen
+# 2. Set eula=true in eula.txt
 
-# 3. Alle Server-Mods in /mods/ legen
+# 3. Place all server-side mods in /mods/
 
-# 4. Server starten:
-./run.sh  (oder start.sh)
+# 4. Start the server:
+./run.sh  (or start.sh)
 
-# 5. Auf Fehler in logs/latest.log prüfen
-# 6. Dependencies prüfen wenn ein Mod crasht
+# 5. Check logs/latest.log for errors
+# 6. Check mod dependencies if a mod crashes
 ```
 
-**Wichtig:** Simple Voice Chat Port 24454 (UDP) in Firewall öffnen!
+**Important:** Open port 24454 (UDP) in your firewall for Simple Voice Chat!

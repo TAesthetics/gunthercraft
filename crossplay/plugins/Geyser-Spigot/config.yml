@@ -1,17 +1,17 @@
 # Gunthercraft - Geyser-Spigot config.yml
-# Ermöglicht Bedrock-Spielern den Beitritt zum Java-Server
-# =========================================================
+# Allows Bedrock players to join the Java server
+# ================================================
 # Download: https://geysermc.org/download
 
 bedrock:
-  # IP auf der Geyser auf Bedrock-Verbindungen hört
+  # IP Geyser listens on for Bedrock connections
   address: 0.0.0.0
-  # Port für Bedrock-Spieler (UDP). Firewall-Regel nicht vergessen!
+  # Port for Bedrock players (UDP) - open this in your firewall!
   port: 19132
   broadcast-port: 19132
-  # true = Bedrock-Port entspricht automatisch dem Java-Port (für Hoster die Ports dynamisieren)
+  # true = Bedrock port automatically mirrors Java port (useful for dynamic-port hosts)
   clone-remote-port: false
-  # MOTD im Bedrock-Servermenü
+  # MOTD shown in the Bedrock server browser
   motd1: "Gunthercraft"
   motd2: "Java + Bedrock Crossplay"
   server-name: "Gunthercraft"
@@ -19,18 +19,18 @@ bedrock:
   enable-proxy-protocol: false
 
 remote:
-  # "auto" = Geyser verbindet sich mit dem lokalen Paper-Server (empfohlen als Plugin)
+  # "auto" = Geyser connects to the local Paper server (recommended when installed as plugin)
   address: auto
   port: 25565
-  # "floodgate" = Bedrock-Accounts ohne Java-Account. Floodgate muss installiert sein!
+  # "floodgate" = Bedrock accounts without a Java account. Floodgate must be installed!
   auth-type: floodgate
   use-proxy-protocol: false
   forward-hostname: false
 
-# Pfad zur Floodgate key.pem (liegt im Floodgate-Plugin-Ordner)
+# Path to the Floodgate key.pem (located in the Floodgate plugin folder)
 floodgate-key-file: key.pem
 
-# Passthrough: MOTD, Spielerzahl etc. vom Java-Server übernehmen
+# Passthrough: mirror MOTD, player count etc. from the Java server
 passthrough-motd: true
 passthrough-protocol-name: true
 passthrough-player-counts: true
@@ -39,42 +39,42 @@ ping-passthrough-interval: 3
 
 forward-player-ping: false
 
-# Maximale angezeigte Spielerzahl in der Bedrock-Serverliste (-1 = Java-Wert)
+# Maximum displayed player count in the Bedrock server list (-1 = use Java value)
 max-players: 100
 
 debug-mode: false
 
-# Thread-Pool-Größe für Geyser (anpassen je nach CPU-Kerne)
+# Thread pool size for Geyser (adjust based on available CPU cores)
 general-thread-pool: 32
 
-# OptiFine-Capes, LabyMod-Capes etc. für Bedrock-Spieler anzeigen
+# Show OptiFine, LabyMod etc. capes for Bedrock players
 allow-third-party-capes: true
 allow-third-party-ears: false
 
-# Fake-Cooldown-Animation für Bedrock-Spieler (kein nativer Attack-Cooldown in Bedrock)
+# Fake cooldown animation for Bedrock players (Bedrock has no native attack cooldown)
 show-cooldown: title
 
-# Koordinaten im HUD anzeigen
+# Show coordinates in the Bedrock HUD
 show-coordinates: true
 
 disable-bedrock-scaffolding: false
 
 emote-offhand-workaround: disabled
 
-default-locale: de_de
+default-locale: en_us
 
-# Cache-Dauer für heruntergeladene Bilder (Skins etc.) in Tagen
+# How many days to cache downloaded images (skins etc.)
 cache-images: 7
 
-# Custom Skulls (Spielerköpfe) anzeigen
+# Show custom player skulls
 allow-custom-skulls: true
 max-visible-custom-skulls: 128
 custom-skull-render-distance: 32
 
-# Nether über Y127 bauen ermöglichen (Bedrock-Limitation umgehen)
+# Allow building above Y127 in the Nether (works around a Bedrock limitation)
 above-bedrock-nether-building: false
 
-# Resource Pack erzwingen
+# Force resource pack download
 force-resource-packs: false
 
 xbox-achievements-enabled: false
@@ -93,10 +93,10 @@ scoreboard-packet-threshold: 20
 
 enable-proxy-connections: false
 
-# MTU für Bedrock-Pakete (Standard: 1400)
+# MTU for Bedrock packets (default: 1400)
 mtu: 1400
 
 use-direct-connection: true
 
-# Kompression deaktivieren wenn Bedrock-Spieler schnelle Verbindungen haben
+# Disable compression if Bedrock players have fast connections
 disable-compression: true

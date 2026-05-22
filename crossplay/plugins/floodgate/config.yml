@@ -1,36 +1,35 @@
 # Gunthercraft - Floodgate config.yml
-# Erlaubt Bedrock-Spielern ohne Java-Account den Beitritt
+# Allows Bedrock players to join without a Java account
 # Download: https://geysermc.org/download (Floodgate-Spigot)
-# ============================================================
+# =============================================================
 
-# Präfix der Bedrock-Spielernamen (verhindert Namenskonflikte mit Java-Spielern)
-# Standard ist "." (Punkt) - ein unsichtbares Zeichen auf Bedrock
+# Prefix added to Bedrock player names (prevents name conflicts with Java players)
+# Default is "." (dot) - invisible on Bedrock
 username-prefix: "."
 
-# Bedrock-Spieler können alle Sprachen nutzen (auch solche mit Sonderzeichen)
-# Achtung: manche Plugins reagieren empfindlich darauf
+# Allow Bedrock players to use all languages including special characters
+# Note: some plugins may behave unexpectedly with special characters
 replace-spaces: true
 
-# Zeigt den Bedrock-Plattform-Typ im Spieler-Info an
-# (z.B. Xbox, PlayStation, Switch, Mobile, Windows)
+# Show Bedrock platform type in player info
+# (e.g. Xbox, PlayStation, Switch, Mobile, Windows)
 send-floodgate-data: true
 
-# Wenn Geyser und Floodgate auf unterschiedlichen Servern laufen
-# (für BungeeCord/Velocity-Setups)
+# Used when Geyser and Floodgate run on separate servers (BungeeCord/Velocity setups)
 disconnect:
   invalid-key: Please connect through GeyserMC.
   invalid-arguments-length: Expected {0} arguments, got {1}.
 
-# Datenbanktyp für gespeicherte Bedrock-Link-Daten
-# "sqlite" für lokale Datenbank (Standard, reicht für einzelne Server)
+# Database type for stored Bedrock link data
+# "sqlite" for local database (default, sufficient for single servers)
 player-link:
   enabled: true
   type: sqlite
-  # Ermöglicht das Verknüpfen von Bedrock- und Java-Accounts (/linkaccount)
+  # Allow linking Bedrock and Java accounts via /linkaccount
   allowed: true
-  # Verknüpfung nur mit eigenem Java-Account erlauben
+  # Only allow linking with the player's own Java account
   require-own-linking: false
-  # Wie lange ein Link-Code gültig ist (in Sekunden)
+  # How long a link code is valid (in seconds)
   link-code-timeout: 300
 
 metrics:
